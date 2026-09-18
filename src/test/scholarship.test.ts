@@ -91,4 +91,18 @@ describe('zkScholar Contract (' + network + ')', () => {
       }),
     ).rejects.toThrow();
   });
+
+  it('Rejects applicant with CS score below minimum threshold', async () => {
+    const applicant_id = crypto.randomBytes(32);
+    await expect(
+      (submitCallTx<Contract, 'apply_for_grant'>)(providers, {
+        compiledContract: CompiledZkScholarContract, contractAddress,
+        privateStateId: PRIVATE_STATE_ID, circuitId: 'apply_for_grant', args: [],
+        witnesses: {
+          applicant_credentials: () => ({ cs_score: 600n, coding_hours: 2000n, family_income: 90_000n, applicant_id }),
+          admin_secret_key: () => new Uint8Array(32),
+        },
+      }),
+    ).rejects.toThrow();
+  });
 });
