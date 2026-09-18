@@ -119,4 +119,18 @@ describe('zkScholar Contract (' + network + ')', () => {
       }),
     ).rejects.toThrow();
   });
+
+  it('Allows the admin to update grant criteria', async () => {
+    await (submitCallTx<Contract, 'update_grant_config'>)(providers, {
+      compiledContract: CompiledZkScholarContract, contractAddress,
+      privateStateId: PRIVATE_STATE_ID, circuitId: 'update_grant_config',
+      args: [800n, 1800n, 100_000n, BigInt(Math.floor(Date.now() / 1000) + 86400 * 60), 100n, true],
+      witnesses: {
+        applicant_credentials: () => ({ cs_score: 0n, coding_hours: 0n, family_income: 0n, applicant_id: new Uint8Array(32) }),
+        admin_secret_key: () => adminSk,
+      },
+    });
+    const state = await queryLedger(providers);
+    expect(state.min_cs_score).toEqual(800n);
+  });
 });
