@@ -11,3 +11,10 @@ export ledger grant_deadline: Uint<64>;
 export ledger is_active: Boolean;
 export ledger max_grants: Uint<32>;
 export ledger total_grants: Uint<32>;
+
+struct ApplicantCredentials {
+    cs_score: Uint<32>,
+    coding_hours: Uint<32>,
+    family_income: Uint<32>,
+    applicant_id: Bytes<32>
+}
