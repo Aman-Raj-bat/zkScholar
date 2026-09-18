@@ -160,4 +160,16 @@ describe('zkScholar Contract (' + network + ')', () => {
       },
     });
   });
+
+  it('Passes verification at exact income boundary (100000n)', async () => {
+    const applicant_id = crypto.randomBytes(32);
+    await (submitCallTx<Contract, 'apply_for_grant'>)(providers, {
+      compiledContract: CompiledZkScholarContract, contractAddress,
+      privateStateId: PRIVATE_STATE_ID, circuitId: 'apply_for_grant', args: [],
+      witnesses: {
+        applicant_credentials: () => ({ cs_score: 820n, coding_hours: 1900n, family_income: 100_000n, applicant_id }),
+        admin_secret_key: () => new Uint8Array(32),
+      },
+    });
+  });
 });
