@@ -18,3 +18,4 @@ export default function Layout({ children }: { children: ReactNode }) {
   );
 }
 // a11y: added aria-current for active nav links
+// v2.1 final
