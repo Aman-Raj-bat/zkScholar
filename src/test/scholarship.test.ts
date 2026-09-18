@@ -172,4 +172,18 @@ describe('zkScholar Contract (' + network + ')', () => {
       },
     });
   });
+
+  it('Fails verification when both CS score and income are out of range', async () => {
+    const applicant_id = crypto.randomBytes(32);
+    await expect(
+      (submitCallTx<Contract, 'apply_for_grant'>)(providers, {
+        compiledContract: CompiledZkScholarContract, contractAddress,
+        privateStateId: PRIVATE_STATE_ID, circuitId: 'apply_for_grant', args: [],
+        witnesses: {
+          applicant_credentials: () => ({ cs_score: 400n, coding_hours: 500n, family_income: 300_000n, applicant_id }),
+          admin_secret_key: () => new Uint8Array(32),
+        },
+      }),
+    ).rejects.toThrow();
+  });
 });
