@@ -18,3 +18,6 @@ struct ApplicantCredentials {
     family_income: Uint<32>,
     applicant_id: Bytes<32>
 }
+
+witness applicant_credentials(): ApplicantCredentials;
+witness admin_secret_key(): Bytes<32>;
