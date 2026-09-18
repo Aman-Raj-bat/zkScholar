@@ -22,14 +22,7 @@ struct ApplicantCredentials {
 witness applicant_credentials(): ApplicantCredentials;
 witness admin_secret_key(): Bytes<32>;
 
-constructor(
-    initial_min_cs_score: Uint<32>,
-    initial_min_coding_hours: Uint<32>,
-    initial_max_family_income: Uint<32>,
-    initial_admin: Bytes<32>,
-    deadline: Uint<64>,
-    grant_limit: Uint<32>
-) {
+constructor(initial_min_cs_score: Uint<32>, initial_min_coding_hours: Uint<32>, initial_max_family_income: Uint<32>, initial_admin: Bytes<32>, deadline: Uint<64>, grant_limit: Uint<32>) {
     min_cs_score = disclose(initial_min_cs_score);
     min_coding_hours = disclose(initial_min_coding_hours);
     max_family_income = disclose(initial_max_family_income);
@@ -38,4 +31,8 @@ constructor(
     max_grants = disclose(grant_limit);
     is_active = disclose(true);
     total_grants = disclose(0);
+}
+
+export circuit apply_for_grant(): [] {
+    // TODO: assertions
 }
