@@ -1,3 +1,3 @@
 # Security Policy
 
-Report to security@zkscholar.dev
+Report vulnerabilities to security@zkscholar.dev
