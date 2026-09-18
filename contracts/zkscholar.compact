@@ -1,0 +1,117 @@
+pragma language_version >= 0.22;
+
+import CompactStandardLibrary;
+
+// =============================================================================
+// zkScholar — Privacy-Preserving Tech Grant Verification
+// Ledger State (Public, on-chain)
+// =============================================================================
+export ledger min_cs_score: Uint<32>;       // Min computer science aptitude score (0–1000)
+export ledger min_coding_hours: Uint<32>;   // Min verified coding hours (per year)
+export ledger max_family_income: Uint<32>;  // Max family income threshold (annual, USD)
+export ledger admin: Bytes<32>;             // Hash commitment of admin secret key
+export ledger nullifiers: Set<Bytes<32>>;   // Prevent double-grant claims
+
+// Grant Configuration
+export ledger grant_deadline: Uint<64>;     // Unix timestamp — application window close
+export ledger is_active: Boolean;           // Emergency pause toggle
+export ledger max_grants: Uint<32>;         // Cap on total grants awarded
+export ledger total_grants: Uint<32>;       // Running counter of grants issued
+
+// =============================================================================
+// Private Witnesses (Supplied by user off-chain, never revealed)
+// =============================================================================
+struct ApplicantCredentials {
+    cs_score: Uint<32>,
+    coding_hours: Uint<32>,
+    family_income: Uint<32>,
+    applicant_id: Bytes<32>
+}
+witness applicant_credentials(): ApplicantCredentials;
+witness admin_secret_key(): Bytes<32>;
+
+// =============================================================================
+// Constructor — Called ONCE at deploy time
+// =============================================================================
+constructor(
+    initial_min_cs_score: Uint<32>,
+    initial_min_coding_hours: Uint<32>,
+    initial_max_family_income: Uint<32>,
+    initial_admin: Bytes<32>,
+    deadline: Uint<64>,
+    grant_limit: Uint<32>
+) {
+    min_cs_score = disclose(initial_min_cs_score);
+    min_coding_hours = disclose(initial_min_coding_hours);
+    max_family_income = disclose(initial_max_family_income);
+    admin = disclose(initial_admin);
+    grant_deadline = disclose(deadline);
+    max_grants = disclose(grant_limit);
+    is_active = disclose(true);
+    total_grants = disclose(0);
+}
+
+// =============================================================================
+// Core Circuits (ZK Proofs — callable from TypeScript frontend)
+// =============================================================================
+
+// Verifies grant eligibility based on private credentials without revealing them.
+export circuit apply_for_grant(): [] {
+    // 1. Contract state guards
+    assert(disclose(is_active), "Grant applications are currently paused");
+    assert(blockTimeLt(disclose(grant_deadline)), "Application deadline has passed");
+    assert(disclose(total_grants) < disclose(max_grants), "Grant cap has been reached");
+
+    // 2. Pull private credentials from the witness (never goes on-chain)
+    const creds = applicant_credentials();
+
+    // 3. Enforce eligibility rules against public ledger thresholds
+    assert(creds.cs_score > 0, "CS score must be greater than 0");
+    assert(creds.coding_hours > 0, "Coding hours must be greater than 0");
+    assert(creds.family_income > 0, "Family income must be greater than 0");
+    assert(creds.cs_score >= min_cs_score, "CS score below minimum threshold");
+    assert(creds.coding_hours >= min_coding_hours, "Coding hours below minimum threshold");
+    assert(creds.family_income <= max_family_income, "Family income exceeds maximum threshold");
+
+    // 4. Generate a nullifier from private ID to prevent double-claiming
+    const nul = makeNullifier(creds.applicant_id);
+    assert(!nullifiers.member(disclose(nul)), "This applicant has already received a grant");
+
+    // 5. Write to public ledger — nullifier and grant count only
+    nullifiers.insert(disclose(nul));
+    total_grants = disclose((total_grants + 1) as Uint<32>);
+}
+
+// Admin-only: Update grant criteria using private key proof
+export circuit update_grant_config(
+    new_min_cs_score: Uint<32>,
+    new_min_coding_hours: Uint<32>,
+    new_max_family_income: Uint<32>,
+    new_deadline: Uint<64>,
+    new_max_grants: Uint<32>,
+    new_active_status: Boolean
+): [] {
+    const sk = admin_secret_key();
+    assert(admin == adminPublicKey(sk), "Not authorized: invalid admin key");
+
+    min_cs_score = disclose(new_min_cs_score);
+    min_coding_hours = disclose(new_min_coding_hours);
+    max_family_income = disclose(new_max_family_income);
+    grant_deadline = disclose(new_deadline);
+    max_grants = disclose(new_max_grants);
+    is_active = disclose(new_active_status);
+}
+
+// =============================================================================
+// Helper / Pure Circuits
+// =============================================================================
+
+// Derives a public key hash from a secret key (domain-separated)
+export pure circuit adminPublicKey(sk: Bytes<32>): Bytes<32> {
+    return persistentHash<Vector<2, Bytes<32>>>([pad(32, "zkscholar:admin:v1"), sk]);
+}
+
+// Derives an anonymous nullifier from an applicant ID (domain-separated)
+export pure circuit makeNullifier(applicant_id: Bytes<32>): Bytes<32> {
+    return persistentHash<Vector<2, Bytes<32>>>([pad(32, "zkscholar:nullifier:v1"), applicant_id]);
+}
