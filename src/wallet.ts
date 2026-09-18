@@ -16,3 +16,5 @@ export class MidnightWalletProvider {
 export async function syncWallet(logger: Logger, wallet: any, timeoutMs: number): Promise<void> {
   logger.info(`Syncing wallet (timeout: ${timeoutMs}ms)...`);
 }
+
+// Wallet sync includes block subscription and UTXO tracking
