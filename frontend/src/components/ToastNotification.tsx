@@ -1,45 +1,12 @@
 import React, { useEffect } from 'react';
-import { CheckCircle, XCircle, X } from 'lucide-react';
-
-export type ToastType = 'success' | 'error';
-
-export interface ToastProps {
-  id: string;
-  type: ToastType;
-  message: string;
-  onClose: (id: string) => void;
-  duration?: number;
-}
-
-export function Toast({ id, type, message, onClose, duration = 5000 }: ToastProps) {
-  useEffect(() => {
-    if (duration > 0) {
-      const timer = setTimeout(() => {
-        onClose(id);
-      }, duration);
-      return () => clearTimeout(timer);
-    }
-  }, [id, duration, onClose]);
-
+type ToastProps = { message: string; type: 'success' | 'error' | 'info'; onClose: () => void; };
+export default function ToastNotification({ message, type, onClose }: ToastProps) {
+  useEffect(() => { const t = setTimeout(onClose, 5000); return () => clearTimeout(t); }, [onClose]);
+  const colors = { success: 'var(--accent-success)', error: 'var(--accent-danger)', info: 'var(--accent-secondary)' };
   return (
-    <div className={`toast-notification toast-${type}`}>
-      <div className="toast-icon">
-        {type === 'success' ? <CheckCircle size={20} /> : <XCircle size={20} />}
-      </div>
-      <div className="toast-message">{message}</div>
-      <button className="toast-close" onClick={() => onClose(id)}>
-        <X size={16} />
-      </button>
-    </div>
-  );
-}
-
-export function ToastContainer({ toasts, onClose }: { toasts: Omit<ToastProps, 'onClose'>[], onClose: (id: string) => void }) {
-  return (
-    <div className="toast-container">
-      {toasts.map((toast) => (
-        <Toast key={toast.id} {...toast} onClose={onClose} />
-      ))}
+    <div role="status" aria-live="polite" style={{position:'fixed',bottom:'1.5rem',right:'1.5rem',background:'var(--bg-secondary)',border:`1px solid ${colors[type]}`,borderRadius:'var(--radius-md)',padding:'1rem 1.25rem',maxWidth:'360px',color:colors[type],boxShadow:'var(--shadow-card)',zIndex:1000,display:'flex',justifyContent:'space-between',alignItems:'center',gap:'1rem'}}>
+      <span>{message}</span>
+      <button onClick={onClose} style={{color:'var(--text-secondary)',background:'none',border:'none',cursor:'pointer',fontSize:'1.1rem'}}>x</button>
     </div>
   );
 }
