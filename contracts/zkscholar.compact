@@ -99,3 +99,4 @@ export pure circuit makeNullifier(applicant_id: Bytes<32>): Bytes<32> {
 }
 
 // v1.0 nullifier-based double-claim prevention
+// v1.1 adminPublicKey and makeNullifier pure circuits
