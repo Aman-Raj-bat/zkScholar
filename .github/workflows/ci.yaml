@@ -29,3 +29,14 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Compile contract
+        run: yarn compile
+      - name: Start local Midnight network
+        run: yarn env:up
+      - name: Wait for DUST to accrue
+        run: npx vite-node scripts/wait-for-dust.ts
+      - name: Run tests against local network
+        run: yarn test:local
+      - name: Stop local Midnight network
+        if: always()
+        run: yarn env:down
