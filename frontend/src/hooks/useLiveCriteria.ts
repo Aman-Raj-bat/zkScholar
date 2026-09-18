@@ -1,95 +1,23 @@
 import { useState, useEffect } from 'react';
-import { useWallet } from '../contexts/WalletContext';
-import { PREPROD_CONTRACT_ADDRESS, MIN_GPA_THRESHOLD, MAX_INCOME_THRESHOLD } from '../config';
-import { Contract } from '../managed/contract/index.js';
-
-export function useLiveCriteria() {
-  const { session } = useWallet();
-  const [liveGpa, setLiveGpa] = useState<number>(MIN_GPA_THRESHOLD);
-  const [liveIncome, setLiveIncome] = useState<number>(MAX_INCOME_THRESHOLD);
-  const [deadline, setDeadline] = useState<number>(Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60);
-  const [maxClaims, setMaxClaims] = useState<number>(100);
-  const [totalClaims, setTotalClaims] = useState<number>(0);
-  const [isActive, setIsActive] = useState<boolean>(true);
-  
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
+import { CONTRACT_ADDRESS } from '../constants';
+type Criteria = { minCsScore: number; minCodingHours: number; maxFamilyIncome: number };
+const FALLBACK: Criteria = { minCsScore: 750, minCodingHours: 1500, maxFamilyIncome: 120_000 };
+export function useLiveCriteria(): { criteria: Criteria; loading: boolean } {
+  const [criteria, setCriteria] = useState<Criteria>(FALLBACK);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    let mounted = true;
-
     async function fetchCriteria() {
-      if (!session) {
-        if (mounted) {
-          setLiveGpa(MIN_GPA_THRESHOLD);
-          setLiveIncome(MAX_INCOME_THRESHOLD);
-          setIsLoading(false);
-        }
-        return;
-      }
-
       try {
-        setIsLoading(true);
-        const state = await session.providers.publicDataProvider.queryContractState(PREPROD_CONTRACT_ADDRESS);
-        
-        if (state && state.data) {
-          try {
-            const { ledger } = await import('../managed/contract/index.js');
-            const l = ledger(state.data);
-            
-            if (mounted) {
-              setLiveGpa(Number(l.min_gpa));
-              setLiveIncome(Number(l.max_income));
-              setDeadline(Number(l.application_deadline));
-              setMaxClaims(Number(l.max_claims));
-              setTotalClaims(Number(l.total_claims));
-              setIsActive(Boolean(l.is_active));
-            }
-          } catch (decodeErr) {
-            console.error('Failed to decode ledger:', decodeErr);
-            if (mounted) {
-              setLiveGpa(MIN_GPA_THRESHOLD);
-              setLiveIncome(MAX_INCOME_THRESHOLD);
-              setDeadline(Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60);
-              setMaxClaims(100);
-              setTotalClaims(0);
-              setIsActive(true);
-            }
-          }
-        } else {
-          if (mounted) {
-            setLiveGpa(MIN_GPA_THRESHOLD);
-            setLiveIncome(MAX_INCOME_THRESHOLD);
-            setDeadline(Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60);
-            setMaxClaims(100);
-            setTotalClaims(0);
-            setIsActive(true);
-          }
-        }
-      } catch (err: any) {
-        console.error('Failed to fetch live criteria from indexer:', err);
-        if (mounted) {
-          setError(err.message);
-          setLiveGpa(MIN_GPA_THRESHOLD);
-          setLiveIncome(MAX_INCOME_THRESHOLD);
-          setDeadline(Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60);
-          setMaxClaims(100);
-          setTotalClaims(0);
-          setIsActive(true);
-        }
-      } finally {
-        if (mounted) {
-          setIsLoading(false);
-        }
-      }
+        const res = await fetch('https://indexer.preprod.midnight.network/api/v1/graphql', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: `{ contractState(address: "${CONTRACT_ADDRESS}") { data } }` }),
+        });
+        const json = await res.json();
+        const data = json?.data?.contractState?.data;
+        if (data) setCriteria({ minCsScore: Number(data.min_cs_score ?? 750), minCodingHours: Number(data.min_coding_hours ?? 1500), maxFamilyIncome: Number(data.max_family_income ?? 120_000) });
+      } catch { /* fallback */ } finally { setLoading(false); }
     }
-
     fetchCriteria();
-
-    return () => {
-      mounted = false;
-    };
-  }, [session]);
-
-  return { liveGpa, liveIncome, deadline, maxClaims, totalClaims, isActive, isLoading, error };
+  }, []);
+  return { criteria, loading };
 }
