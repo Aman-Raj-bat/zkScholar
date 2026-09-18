@@ -55,7 +55,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-3 mt-1">
             <a
-              href="https://github.com/DeepSaha25/ScholarShield"
+              href="https://github.com/Aman-Raj-bat/zkScholar"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 rounded-xl flex items-center justify-center transition-all"
@@ -67,7 +67,7 @@ export default function Footer() {
               <Code size={16} />
             </a>
             <a
-              href="https://scholar-shield-ten.vercel.app/"
+              href="https://zkscholar-alpha.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 rounded-xl flex items-center justify-center transition-all"
@@ -181,7 +181,7 @@ export default function Footer() {
         style={{ borderTop: '1px solid rgba(0,245,255,0.06)' }}
       >
         <p className="text-xs sm:text-sm" style={{ color: '#4a5880' }}>
-          © {new Date().getFullYear()} zkScholar. Built for the Midnight New Moon to Full Hackathon by Deep Saha.
+          © {new Date().getFullYear()} zkScholar. Built for the Midnight New Moon to Full Hackathon by Aman Raj.
         </p>
       </div>
     </footer>

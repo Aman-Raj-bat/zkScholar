@@ -2,7 +2,7 @@ pragma language_version >= 0.22;
 
 import CompactStandardLibrary;
 
-// ScholarShield eligibility gate
+// zkScholar eligibility gate
 export ledger min_gpa: Uint<32>;
 export ledger max_income: Uint<32>;
 

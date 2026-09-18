@@ -7,7 +7,7 @@ export interface ProofRecord {
   incomeRange: string;
 }
 
-const STORAGE_KEY = 'scholarshield_proof_history';
+const STORAGE_KEY = 'zkscholar_proof_history';
 
 export function saveProof(record: Omit<ProofRecord, 'id' | 'timestamp'>): void {
   try {

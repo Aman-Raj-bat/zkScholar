@@ -79,7 +79,7 @@ export default function AdminPage() {
     >
       <div className="mb-10 text-center md:text-left">
         <h1 className="text-4xl font-extrabold text-slate-800 mb-3 tracking-tight">Admin Settings</h1>
-        <p className="text-slate-500 text-lg">Deploy the ScholarShield contract to the Midnight network.</p>
+        <p className="text-slate-500 text-lg">Deploy the zkScholar contract to the Midnight network.</p>
       </div>
 
       <div className="glass-card p-6 md:p-10 border-t-4 border-t-emerald-500">

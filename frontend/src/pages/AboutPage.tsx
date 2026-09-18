@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
             <Shield size={40} className="text-emerald-500" />
           </div>
-          <h1 className="text-4xl font-extrabold text-slate-800 mb-3 tracking-tight">About ScholarShield</h1>
+          <h1 className="text-4xl font-extrabold text-slate-800 mb-3 tracking-tight">About zkScholar</h1>
           <p className="text-slate-500 text-lg">
             Privacy-preserving eligibility verification built on the Midnight Network.
           </p>
@@ -55,7 +55,7 @@ export default function AboutPage() {
               The ZK Solution
             </h2>
             <p className="text-slate-600 leading-relaxed text-lg mb-6">
-              ScholarShield utilizes Midnight's Zero-Knowledge (ZK) capabilities to invert this model. 
+              zkScholar utilizes Midnight's Zero-Knowledge (ZK) capabilities to invert this model. 
               Instead of sending your data to an authority, the authority's rules (the smart contract) 
               are sent to your device.
             </p>
@@ -96,7 +96,7 @@ export default function AboutPage() {
               The smart contract is written in Compact, and the frontend uses React and the Midnight.js SDK.
             </p>
             <a 
-              href="https://github.com/DeepSaha25/ScholarShield" 
+              href="https://github.com/Aman-Raj-bat/zkScholar" 
               target="_blank" 
               rel="noreferrer" 
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors shadow-sm"
