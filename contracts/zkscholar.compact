@@ -1,3 +1,7 @@
 pragma language_version >= 0.22;
 
 import CompactStandardLibrary;
+
+export ledger min_cs_score: Uint<32>;
+export ledger min_coding_hours: Uint<32>;
+export ledger max_family_income: Uint<32>;
