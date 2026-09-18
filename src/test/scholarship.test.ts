@@ -21,3 +21,13 @@ const MIN_CS_SCORE = 750n;
 const MIN_CODING_HOURS = 1500n;
 const MAX_FAMILY_INCOME = 120_000n;
 const CLAIM_LIMIT = 50n;
+
+function resolveSecret(net: string): WalletSecret {
+  if (net === 'local') return { kind: 'seed', value: ALICE_LOCAL_SEED };
+  const upper = net.toUpperCase();
+  const mnemonic = process.env['MIDNIGHT_' + upper + '_MNEMONIC']?.trim();
+  const seedHex = process.env['MIDNIGHT_' + upper + '_SEED']?.trim();
+  if (mnemonic) return { kind: 'mnemonic', value: mnemonic };
+  if (seedHex) return { kind: 'seed', value: seedHex };
+  throw new Error('Set MIDNIGHT_' + upper + '_MNEMONIC for network ' + net);
+}
