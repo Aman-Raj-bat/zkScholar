@@ -63,4 +63,18 @@ describe('zkScholar Contract (' + network + ')', () => {
     expect(state.total_grants).toEqual(0n);
     logger.info('Deploy verified');
   });
+
+  it('Verifies grant eligibility for a qualifying applicant', async () => {
+    const applicant_id = await providers.walletProvider.getCoinPublicKey();
+    await (submitCallTx<Contract, 'apply_for_grant'>)(providers, {
+      compiledContract: CompiledZkScholarContract, contractAddress,
+      privateStateId: PRIVATE_STATE_ID, circuitId: 'apply_for_grant', args: [],
+      witnesses: {
+        applicant_credentials: () => ({ cs_score: 880n, coding_hours: 2200n, family_income: 85_000n, applicant_id }),
+        admin_secret_key: () => new Uint8Array(32),
+      },
+    });
+    const state = await queryLedger(providers);
+    expect(state.total_grants).toEqual(1n);
+  });
 });
