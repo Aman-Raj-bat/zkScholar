@@ -1,1 +1,13 @@
-{"name":"zkscholar","version":"1.0.0","private":true,"scripts":{"compile":"compact compile contracts/zkscholar.compact","test:local":"vitest run","env:up":"docker compose up -d","env:down":"docker compose down"}}
+{
+  "name": "zkscholar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Privacy-preserving scholarship eligibility on Midnight Network",
+  "scripts": {
+    "compile": "compact compile contracts/zkscholar.compact",
+    "test:local": "vitest run",
+    "env:up": "docker compose -f compose.yml up -d",
+    "env:down": "docker compose -f compose.yml down"
+  },
+  "engines": { "node": ">=22.0.0" }
+}
