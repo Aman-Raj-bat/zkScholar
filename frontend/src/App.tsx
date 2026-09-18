@@ -13,7 +13,7 @@ import DashboardPage from './pages/DashboardPage';
 export default function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-slate-50 font-sans text-slate-900">
+      <div className="flex flex-col min-h-screen font-sans transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
         <NavBar />
         
         <main className="flex-1 w-full max-w-6xl mx-auto pt-6 px-4 sm:px-6">
