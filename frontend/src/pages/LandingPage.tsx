@@ -62,20 +62,20 @@ export default function LandingPage() {
         {/* Hero Headline */}
         <motion.h1 
           variants={itemVariants} 
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.08]"
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 text-slate-900 dark:text-white leading-[1.08]"
         >
           Zero-Knowledge <br className="hidden sm:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">
-            Scholarship Eligibility
+            Tech Grant Verification
           </span>
         </motion.h1>
 
         {/* Hero Subtitle */}
         <motion.p 
           variants={itemVariants} 
-          className="text-slate-600 mb-10 max-w-2xl leading-relaxed text-lg md:text-xl px-2 font-normal"
+          className="text-slate-600 dark:text-slate-300 mb-10 max-w-2xl leading-relaxed text-lg md:text-xl px-2 font-normal"
         >
-          Prove academic merit and financial need on the blockchain without ever exposing your sensitive GPA or annual household income.
+          Prove your technical merit and financial need on the blockchain without ever exposing your sensitive CS aptitude score, coding hours, or family income.
         </motion.p>
 
         {/* Hero Action Buttons */}
@@ -103,21 +103,21 @@ export default function LandingPage() {
 
       {/* Metrics Bar */}
       <motion.section variants={itemVariants} className="w-full flex justify-center px-4">
-        <div className="glass-card flex flex-col md:flex-row items-center justify-around w-full max-w-5xl p-8 md:p-10 gap-8 md:gap-0 relative overflow-hidden bg-white/90">
+        <div className="glass-card flex flex-col md:flex-row items-center justify-around w-full max-w-5xl p-8 md:p-10 gap-8 md:gap-0 relative overflow-hidden bg-white/90 dark:bg-slate-800/90 dark:border-slate-700">
           <div className="text-center px-4">
-            <p className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1 tracking-tight">100%</p>
+            <p className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-1 tracking-tight">100%</p>
             <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Client-Side Privacy</p>
             <p className="text-xs text-slate-400 mt-0.5">Data never touches servers</p>
           </div>
-          <div className="hidden md:block w-px h-14 bg-slate-200" />
+          <div className="hidden md:block w-px h-14 bg-slate-200 dark:bg-slate-700" />
           <div className="text-center px-4">
             <p className="text-4xl md:text-5xl font-extrabold text-emerald-500 mb-1 tracking-tight">&lt; 2.5s</p>
             <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">WASM Proof Generation</p>
             <p className="text-xs text-slate-400 mt-0.5">High-speed local circuit</p>
           </div>
-          <div className="hidden md:block w-px h-14 bg-slate-200" />
+          <div className="hidden md:block w-px h-14 bg-slate-200 dark:bg-slate-700" />
           <div className="text-center px-4">
-            <p className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-1 tracking-tight">Zero</p>
+            <p className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-1 tracking-tight">Zero</p>
             <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Information Leakage</p>
             <p className="text-xs text-slate-400 mt-0.5">ZK-SNARK math assertion</p>
           </div>

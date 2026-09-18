@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WalletBanner from "./WalletBanner";
-import { Shield, Menu, X, Globe } from "lucide-react";
+import { Shield, Menu, X, Moon, Sun } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,12 +8,36 @@ export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.documentElement.classList.contains('dark') || 
+             window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') setIsDark(true);
+    else if (savedTheme === 'light') setIsDark(false);
+  }, []);
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <>
       <header className="sticky top-0 z-50 w-full pt-3 px-4 sm:px-6">
-        <nav className="max-w-6xl mx-auto h-16 rounded-2xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center justify-between px-5 transition-all">
+        <nav className="max-w-6xl mx-auto h-16 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center justify-between px-5 transition-all">
           
           {/* Logo & Network Badge */}
           <div className="flex items-center gap-3">
@@ -21,8 +45,8 @@ export default function NavBar() {
               <div className="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
                 <Shield size={20} />
               </div>
-              <span className="text-lg font-extrabold text-slate-900 tracking-tight">
-                ScholarShield
+              <span className="text-lg font-extrabold text-slate-900 dark:text-white tracking-tight">
+                zkScholar
               </span>
             </Link>
 
@@ -78,6 +102,15 @@ export default function NavBar() {
             </div>
             
             <WalletBanner />
+            
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className="hidden md:flex items-center justify-center w-10 h-10 text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl transition-colors"
+              aria-label="Toggle Dark Mode"
+            >
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             
             {/* Mobile Menu Toggle */}
             <button 

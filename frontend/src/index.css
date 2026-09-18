@@ -26,6 +26,12 @@
     --primary-foreground: #ffffff;
   }
 
+  .dark {
+    --background: #0b1120;
+    --foreground: #f8fafc;
+    --primary: #10b981;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
@@ -33,6 +39,11 @@
     background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
     background-size: 24px 24px;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    background-image: radial-gradient(#1e293b 1px, transparent 1px);
   }
 }
 
