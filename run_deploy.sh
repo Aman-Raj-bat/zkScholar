@@ -1,10 +1,8 @@
-#!/bin/bash
-export PATH="/root/.local/bin:$PATH"
-export NVM_DIR="/root/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-cd "/mnt/d/risein/MOON/New folder"
-npm install -g vite-node
-export MIDNIGHT_NETWORK=preview
-export $(cat .env.preview | xargs)
-yarn deploy:preview
+#!/usr/bin/env bash
+set -e
+export PATH="$HOME/.local/bin:$PATH"
+export NODE_OPTIONS="--max-old-space-size=12288"
+NETWORK="${1:-preprod}"
+echo "Deploying to ${NETWORK}..."
+npx vite-node src/deploy.ts -- --network "$NETWORK"
+echo "Deploy complete."
