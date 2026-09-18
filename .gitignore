@@ -5,3 +5,4 @@ dist/
 !.env.*.example
 managed/
 *.log
+.DS_Store
