@@ -2,4 +2,14 @@ services:
   proof-server:
     image: midnightnetwork/proof-server:latest
     ports:
-      - '6300:6300'
+      - "6300:6300"
+  midnight-node:
+    image: midnightnetwork/midnight-node:latest
+    ports:
+      - "9944:9944"
+  indexer:
+    image: midnightnetwork/midnight-indexer:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - midnight-node
