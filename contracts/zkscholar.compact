@@ -34,5 +34,7 @@ constructor(initial_min_cs_score: Uint<32>, initial_min_coding_hours: Uint<32>, 
 }
 
 export circuit apply_for_grant(): [] {
-    // TODO: assertions
+    assert(disclose(is_active), "Grant applications are currently paused");
+    assert(blockTimeLt(disclose(grant_deadline)), "Application deadline has passed");
+    assert(disclose(total_grants) < disclose(max_grants), "Grant cap has been reached");
 }
