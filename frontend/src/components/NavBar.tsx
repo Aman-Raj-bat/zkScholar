@@ -1,139 +1,134 @@
 import { useState } from "react";
 import WalletBanner from "./WalletBanner";
-import { Zap, Menu, X } from "lucide-react";
+import { Shield, Menu, X, Globe } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const isActive = (path: string) => location.pathname === path;
 
-  const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/verify", label: "Apply" },
-    { to: "/dashboard", label: "Dashboard" },
-    { to: "/about", label: "Docs" },
-  ];
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <>
       <header className="sticky top-0 z-50 w-full pt-3 px-4 sm:px-6">
-        <nav
-          className="max-w-6xl mx-auto h-16 rounded-2xl flex items-center justify-between px-5 transition-all"
-          style={{
-            background: 'rgba(6, 8, 24, 0.85)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(0, 245, 255, 0.12)',
-            boxShadow: '0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(0,245,255,0.06)',
-          }}
-        >
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-            <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all group-hover:scale-105"
-              style={{
-                background: 'linear-gradient(135deg, #00f5ff 0%, #3b82f6 100%)',
-                boxShadow: '0 0 16px rgba(0,245,255,0.45)',
-              }}
-            >
-              <Zap size={18} className="text-black" />
-            </div>
-            <span
-              className="text-lg font-extrabold tracking-tight"
-              style={{
-                background: 'linear-gradient(135deg, #00f5ff 0%, #a855f7 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              zkScholar
-            </span>
+        <nav className="max-w-6xl mx-auto h-16 rounded-2xl bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex items-center justify-between px-5 transition-all">
+          
+          {/* Logo & Network Badge */}
+          <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-2.5 group shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                <Shield size={20} />
+              </div>
+              <span className="text-lg font-extrabold text-slate-900 tracking-tight">
+                ScholarShield
+              </span>
+            </Link>
 
-            {/* Network Pill */}
-            <div className="hidden sm:flex items-center gap-1.5 pill pill-cyan ml-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/70 text-[11px] font-bold text-emerald-700">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>Preprod</span>
             </div>
-          </Link>
-
+          </div>
+          
           {/* Navigation Links */}
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div
-              className="hidden md:flex items-center gap-1 p-1 rounded-xl"
-              style={{ background: 'rgba(13,18,36,0.7)', border: '1px solid rgba(0,245,255,0.08)' }}
-            >
-              {navLinks.map(({ to, label }) => (
-                <Link
-                  key={to}
-                  to={to}
-                  className="px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all"
-                  style={
-                    isActive(to)
-                      ? {
-                          background: 'rgba(0,245,255,0.10)',
-                          color: '#00f5ff',
-                          boxShadow: 'inset 0 0 12px rgba(0,245,255,0.08)',
-                        }
-                      : { color: '#8b9dc3' }
-                  }
-                  onMouseEnter={e => {
-                    if (!isActive(to)) (e.target as HTMLElement).style.color = '#e2e8f8';
-                  }}
-                  onMouseLeave={e => {
-                    if (!isActive(to)) (e.target as HTMLElement).style.color = '#8b9dc3';
-                  }}
-                >
-                  {label}
-                </Link>
-              ))}
+          <div className="flex items-center gap-3 sm:gap-6">
+            <div className="hidden md:flex items-center gap-1 bg-slate-100/70 p-1 rounded-xl border border-slate-200/50 text-xs font-semibold">
+              <Link
+                to="/"
+                className={`px-3.5 py-1.5 rounded-lg transition-all ${
+                  isActive("/") 
+                    ? "bg-white text-emerald-700 font-bold shadow-2xs" 
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                Home
+              </Link>
+              <Link
+                to="/verify"
+                className={`px-3.5 py-1.5 rounded-lg transition-all ${
+                  isActive("/verify") 
+                    ? "bg-white text-emerald-700 font-bold shadow-2xs" 
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                Verify
+              </Link>
+              <Link
+                to="/dashboard"
+                className={`px-3.5 py-1.5 rounded-lg transition-all ${
+                  isActive("/dashboard") 
+                    ? "bg-white text-emerald-700 font-bold shadow-2xs" 
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                Dashboard
+              </Link>
+              <Link
+                to="/about"
+                className={`px-3.5 py-1.5 rounded-lg transition-all ${
+                  isActive("/about") 
+                    ? "bg-white text-emerald-700 font-bold shadow-2xs" 
+                    : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                About
+              </Link>
             </div>
-
+            
             <WalletBanner />
-
-            {/* Mobile Toggle */}
-            <button
+            
+            {/* Mobile Menu Toggle */}
+            <button 
               aria-label="Toggle mobile menu"
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-xl transition-all"
-              style={{ background: 'rgba(13,18,36,0.7)', border: '1px solid rgba(0,245,255,0.10)', color: '#8b9dc3' }}
+              className="md:hidden flex items-center justify-center w-10 h-10 text-slate-700 bg-slate-100 hover:bg-slate-200/80 rounded-xl transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </nav>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-4 top-24 z-40 rounded-2xl md:hidden overflow-hidden p-4"
-            style={{
-              background: 'rgba(6, 8, 24, 0.97)',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(0,245,255,0.15)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
-            }}
+            className="fixed inset-x-4 top-24 z-40 bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl shadow-xl md:hidden overflow-hidden p-4"
           >
-            <div className="flex flex-col space-y-1">
-              {navLinks.map(({ to, label }) => (
-                <Link
-                  key={to}
-                  to={to}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm font-bold px-4 py-3 rounded-xl transition-all"
-                  style={{ color: isActive(to) ? '#00f5ff' : '#8b9dc3' }}
-                >
-                  {label}
-                </Link>
-              ))}
+            <div className="flex flex-col space-y-2">
+              <Link
+                to="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm font-bold text-slate-800 hover:text-emerald-600 hover:bg-emerald-50/70 transition-colors px-4 py-3 rounded-xl"
+              >
+                Home
+              </Link>
+              <Link
+                to="/verify"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm font-bold text-slate-800 hover:text-emerald-600 hover:bg-emerald-50/70 transition-colors px-4 py-3 rounded-xl"
+              >
+                Verify Eligibility
+              </Link>
+              <Link
+                to="/dashboard"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm font-bold text-slate-800 hover:text-emerald-600 hover:bg-emerald-50/70 transition-colors px-4 py-3 rounded-xl"
+              >
+                Proof History Dashboard
+              </Link>
+              <Link
+                to="/about"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm font-bold text-slate-800 hover:text-emerald-600 hover:bg-emerald-50/70 transition-colors px-4 py-3 rounded-xl"
+              >
+                How It Works
+              </Link>
             </div>
           </motion.div>
         )}
