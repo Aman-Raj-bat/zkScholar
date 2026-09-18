@@ -1,27 +1,4 @@
-import { CompiledContract } from '@midnight-ntwrk/midnight-js-protocol/compact-js';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-export {
-  Contract,
-  ledger,
-  pureCircuits,
-  type Ledger,
-  type ImpureCircuits,
-  type PureCircuits,
-} from './managed/zkscholar/contract/index.js';
-import { Contract } from './managed/zkscholar/contract/index.js';
-
-const currentDir = path.resolve(fileURLToPath(import.meta.url), '..');
-export const zkConfigPath = path.resolve(currentDir, 'managed', 'zkscholar');
-
-export const CompiledZkScholarContract = CompiledContract.make(
-  'ZkScholarContract',
-  Contract,
-).pipe(
-  CompiledContract.withVacantWitnesses,
-  CompiledContract.withCompiledFileAssets(zkConfigPath),
-);
-
-// Backwards-compat alias
-export const CompiledScholarshipContract = CompiledZkScholarContract;
+// Auto-generated contract bindings
+export { Contract, ledger, pureCircuits } from './managed/zkscholar/index.js';
+export { default as CompiledZkScholarContract } from './managed/zkscholar/zkscholar.compact.json' assert { type: 'json' };
+export const zkConfigPath = new URL('./managed/zkscholar/', import.meta.url).pathname;
