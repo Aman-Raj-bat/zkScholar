@@ -47,3 +47,20 @@ describe('zkScholar Contract (' + network + ')', () => {
     logger.info('Setup complete');
   });
   afterAll(async () => { if (wallet) await wallet.stop(); });
+  it('Deploys the zkScholar grant contract with initial criteria', async () => {
+    const deadline = BigInt(Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60);
+    const deployed: DeployedContract<Contract> = await (deployContract<Contract>)(providers, {
+      compiledContract: CompiledZkScholarContract,
+      privateStateId: PRIVATE_STATE_ID,
+      initialPrivateState: {},
+      args: [MIN_CS_SCORE, MIN_CODING_HOURS, MAX_FAMILY_INCOME, adminHash, deadline, CLAIM_LIMIT],
+    });
+    contractAddress = deployed.deployTxData.public.contractAddress;
+    expect(contractAddress).toBeDefined();
+    const state = await queryLedger(providers);
+    expect(state.min_cs_score).toEqual(MIN_CS_SCORE);
+    expect(state.is_active).toBe(true);
+    expect(state.total_grants).toEqual(0n);
+    logger.info('Deploy verified');
+  });
+});
