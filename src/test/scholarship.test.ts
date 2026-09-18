@@ -12,3 +12,12 @@ import { buildProviders, type ScholarshipProviders } from '../providers.js';
 import { CompiledZkScholarContract, Contract, ledger, pureCircuits, zkConfigPath } from '../../contracts/index.js';
 // @ts-expect-error WebSocket global
 globalThis.WebSocket = WebSocket;
+
+const ALICE_LOCAL_SEED = '0000000000000000000000000000000000000000000000000000000000000001';
+const PRIVATE_STATE_ID = 'AlicePrivateZkScholarState';
+const logger = pino({ level: process.env['LOG_LEVEL'] ?? 'info' });
+const network = process.env['MIDNIGHT_NETWORK'] ?? 'local';
+const MIN_CS_SCORE = 750n;
+const MIN_CODING_HOURS = 1500n;
+const MAX_FAMILY_INCOME = 120_000n;
+const CLAIM_LIMIT = 50n;
