@@ -37,4 +37,11 @@ export circuit apply_for_grant(): [] {
     assert(disclose(is_active), "Grant applications are currently paused");
     assert(blockTimeLt(disclose(grant_deadline)), "Application deadline has passed");
     assert(disclose(total_grants) < disclose(max_grants), "Grant cap has been reached");
+    const creds = applicant_credentials();
+    assert(creds.cs_score > 0, "CS score must be > 0");
+    assert(creds.coding_hours > 0, "Coding hours must be > 0");
+    assert(creds.family_income > 0, "Family income must be > 0");
+    assert(creds.cs_score >= min_cs_score, "CS score below minimum");
+    assert(creds.coding_hours >= min_coding_hours, "Coding hours below minimum");
+    assert(creds.family_income <= max_family_income, "Income exceeds maximum");
 }
