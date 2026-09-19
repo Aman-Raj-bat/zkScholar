@@ -31,10 +31,9 @@ zkScholar is a decentralized application (dApp) engineered on the **Midnight Net
 
 ## Official Submission Links
 
-- **Live Application (Vercel):** [INSERT_YOUR_LIVE_APP_LINK_HERE]
-- **Deployed Contract (Midnight Preprod):** [INSERT_YOUR_PREPROD_CONTRACT_ADDRESS_HERE]
-- **Demo Video Presentation:** [INSERT_YOUR_VIDEO_LINK_HERE]
-- **Public Brand Presence (X Profile):** [INSERT_YOUR_X_PROFILE_HERE]
+- **Live Application (Netlify):** https://zk-scholar.netlify.app/
+- **Deployed Contract (Midnight Preprod):** 5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e
+- **Demo Video Presentation:** [Demo Video](https://drive.google.com/file/d/18nvO0s5JXgGrngQvlMG7VHUd33NUQtqu/view?usp=sharing)
 
 ---
 
