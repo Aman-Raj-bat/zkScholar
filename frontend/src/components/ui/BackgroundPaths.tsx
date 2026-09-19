@@ -23,7 +23,7 @@ export function BackgroundPaths({ className = '' }: BackgroundPathsProps) {
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
       {/* Ambient Radial Spotlight */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-gradient-to-tr from-emerald-300/25 via-emerald-100/30 to-transparent blur-3xl rounded-full -z-10 animate-pulse-slow" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-gradient-to-tr from-violet-300/25 via-violet-100/30 to-transparent blur-3xl rounded-full -z-10 animate-pulse-slow" />
       
       <svg
         className="w-full h-full object-cover"

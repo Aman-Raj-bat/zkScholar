@@ -16,20 +16,20 @@ export default function WalletBanner() {
 
   if (isConnected && address) {
     return (
-      <div className="flex items-center gap-3 px-4 py-2 bg-emerald-50 border border-emerald-200/50 rounded-xl shadow-sm">
+      <div className="flex items-center gap-3 px-4 py-2 bg-violet-50 border border-violet-200/50 rounded-xl shadow-sm">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-          <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">
+          <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse"></div>
+          <span className="text-xs font-bold text-violet-800 uppercase tracking-wider">
             {walletType === '1am' ? '1AM' : 'Lace'}
           </span>
         </div>
-        <div className="w-px h-4 bg-emerald-200"></div>
-        <span className="text-sm font-mono text-emerald-900">
+        <div className="w-px h-4 bg-violet-200"></div>
+        <span className="text-sm font-mono text-violet-900">
           {address.slice(0, 6)}…{address.slice(-4)}
         </span>
         <button 
           onClick={disconnect} 
-          className="ml-2 text-emerald-600 hover:text-emerald-800 transition-colors"
+          className="ml-2 text-violet-600 hover:text-violet-800 transition-colors"
           title="Disconnect Wallet"
         >
           <LogOut size={16} />

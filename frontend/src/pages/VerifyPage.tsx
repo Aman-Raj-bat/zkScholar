@@ -100,7 +100,7 @@ export default function VerifyPage() {
     return (
       <div className="flex items-center justify-center min-h-[60vh] px-4">
         <div className="glass-card max-w-md w-full p-10 text-center bg-white/90">
-          <div className="w-20 h-20 bg-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner text-emerald-600">
+          <div className="w-20 h-20 bg-violet-50 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-inner text-violet-600">
             <Lock size={36} />
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 mb-3">Connect Midnight Wallet</h2>
@@ -139,8 +139,8 @@ export default function VerifyPage() {
     >
       {/* Header Banner */}
       <div className="glass-card p-8 mb-8 text-center relative overflow-hidden bg-white/90">
-        <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600"></div>
-        <div className="w-16 h-16 rounded-2xl bg-emerald-100/80 text-emerald-600 flex items-center justify-center mx-auto mb-4 shadow-inner">
+        <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-violet-500 via-fuchsia-400 to-violet-600"></div>
+        <div className="w-16 h-16 rounded-2xl bg-violet-100/80 text-violet-600 flex items-center justify-center mx-auto mb-4 shadow-inner">
           <Shield size={36} />
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">
@@ -152,13 +152,13 @@ export default function VerifyPage() {
         
         {/* On-Chain Active Criteria Card */}
         <div className="bg-slate-50/90 p-5 rounded-2xl border border-slate-200/90 shadow-2xs inline-block w-full max-w-md">
-          <h3 className="text-emerald-700 font-extrabold text-xs uppercase tracking-wider mb-3 flex items-center justify-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <h3 className="text-violet-700 font-extrabold text-xs uppercase tracking-wider mb-3 flex items-center justify-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-violet-500 animate-ping"></span>
             On-Chain Criteria (Live from Midnight)
           </h3>
           {isCriteriaLoading ? (
             <div className="flex justify-center items-center gap-2 opacity-70 py-1">
-              <Loader2 className="animate-spin text-emerald-600" size={16} /> 
+              <Loader2 className="animate-spin text-violet-600" size={16} /> 
               <span className="text-xs font-mono text-slate-600">Querying Midnight ledger...</span>
             </div>
           ) : (
@@ -190,14 +190,14 @@ export default function VerifyPage() {
               <label htmlFor="input-gpa" className="block text-sm font-bold text-slate-800">
                 Academic GPA (0.0 - 10.0)
               </label>
-              <span className="text-[11px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded">
+              <span className="text-[11px] text-violet-600 font-semibold bg-violet-50 px-2 py-0.5 rounded">
                 Private Witness
               </span>
             </div>
             <input
               id="input-gpa"
               type="number"
-              className="w-full px-4 py-3.5 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none text-slate-900 font-medium disabled:opacity-50 disabled:bg-slate-50"
+              className="w-full px-4 py-3.5 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-violet-500 transition-all outline-none text-slate-900 font-medium disabled:opacity-50 disabled:bg-slate-50"
               placeholder="e.g. 8.75"
               min="0"
               max="10"
@@ -215,14 +215,14 @@ export default function VerifyPage() {
               <label htmlFor="input-income" className="block text-sm font-bold text-slate-800">
                 Annual Household Income (₹)
               </label>
-              <span className="text-[11px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded">
+              <span className="text-[11px] text-violet-600 font-semibold bg-violet-50 px-2 py-0.5 rounded">
                 Private Witness
               </span>
             </div>
             <input
               id="input-income"
               type="number"
-              className="w-full px-4 py-3.5 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all outline-none text-slate-900 font-medium disabled:opacity-50 disabled:bg-slate-50"
+              className="w-full px-4 py-3.5 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-violet-500 focus:border-violet-500 transition-all outline-none text-slate-900 font-medium disabled:opacity-50 disabled:bg-slate-50"
               placeholder="e.g. 150000"
               min="0"
               step="1000"
@@ -243,12 +243,12 @@ export default function VerifyPage() {
             className="mb-6 flex items-center justify-between px-4 py-3 bg-slate-50 rounded-xl border border-slate-200/80 text-xs"
           >
             <span className="text-slate-600 font-medium flex items-center gap-1.5">
-              <Sparkles size={14} className="text-emerald-500" />
+              <Sparkles size={14} className="text-violet-500" />
               Client-side qualification preview:
             </span>
             <span className={`px-3 py-1 rounded-full font-bold uppercase tracking-wider ${
               precheckResult === 'likely_eligible' 
-                ? 'bg-emerald-100 text-emerald-800' 
+                ? 'bg-violet-100 text-violet-800' 
                 : precheckResult === 'likely_ineligible'
                 ? 'bg-rose-100 text-rose-800'
                 : 'bg-amber-100 text-amber-800'
@@ -304,10 +304,10 @@ export default function VerifyPage() {
             >
               <div className="terminal-header">
                 <span className="flex items-center gap-2">
-                  <Terminal size={13} className="text-emerald-400" />
+                  <Terminal size={13} className="text-violet-400" />
                   Midnight Prover Terminal (WASM Runtime)
                 </span>
-                <span className="text-[10px] text-emerald-400 font-bold">ACTIVE</span>
+                <span className="text-[10px] text-violet-400 font-bold">ACTIVE</span>
               </div>
               <div className="p-4 space-y-1.5 text-slate-300 font-mono overflow-x-auto max-h-48 overflow-y-auto">
                 {terminalLogs.map((log, i) => (
@@ -316,7 +316,7 @@ export default function VerifyPage() {
                   </div>
                 ))}
                 {isProcessingStatus && (
-                  <div className="flex items-center gap-1 text-emerald-400 animate-pulse pt-1">
+                  <div className="flex items-center gap-1 text-violet-400 animate-pulse pt-1">
                     <span>&gt; Processing constraints...</span>
                   </div>
                 )}
@@ -331,13 +331,13 @@ export default function VerifyPage() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mt-8 p-7 bg-gradient-to-b from-emerald-50/90 to-white border-2 border-emerald-400/80 rounded-2xl shadow-xl flex flex-col items-center text-center relative overflow-hidden"
+              className="mt-8 p-7 bg-gradient-to-b from-violet-50/90 to-white border-2 border-violet-400/80 rounded-2xl shadow-xl flex flex-col items-center text-center relative overflow-hidden"
             >
-              <div className="w-16 h-16 bg-emerald-500 text-white rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/30">
+              <div className="w-16 h-16 bg-violet-500 text-white rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-violet-500/30">
                 <CheckCircle2 size={36} />
               </div>
               
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-100/80 px-3 py-1 rounded-full mb-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-violet-700 bg-violet-100/80 px-3 py-1 rounded-full mb-2">
                 Verifiable Credential Generated
               </span>
               <h3 className="text-2xl font-extrabold text-slate-900 mb-2">Scholarship Eligibility Verified!</h3>
@@ -351,7 +351,7 @@ export default function VerifyPage() {
                     <span>On-Chain Transaction ID:</span>
                     <button 
                       onClick={() => copyProof(txId)}
-                      className="inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-700 font-bold"
+                      className="inline-flex items-center gap-1 text-violet-600 hover:text-violet-700 font-bold"
                     >
                       {copied ? <Check size={13} /> : <Copy size={13} />}
                       <span>{copied ? 'Copied!' : 'Copy'}</span>
@@ -368,7 +368,7 @@ export default function VerifyPage() {
                   href={explorerTxUrl(txId)}
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white font-bold rounded-xl hover:bg-emerald-600 transition-all shadow-md text-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-violet-500 text-white font-bold rounded-xl hover:bg-violet-600 transition-all shadow-md text-sm"
                 >
                   <span>Verify on Midnight Explorer</span>
                   <ExternalLink size={16} />

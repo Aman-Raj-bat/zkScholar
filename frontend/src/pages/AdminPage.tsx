@@ -82,9 +82,9 @@ export default function AdminPage() {
         <p className="text-slate-500 text-lg">Deploy the zkScholar contract to the Midnight network.</p>
       </div>
 
-      <div className="glass-card p-6 md:p-10 border-t-4 border-t-emerald-500">
+      <div className="glass-card p-6 md:p-10 border-t-4 border-t-violet-500">
         <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3">
-          <div className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
+          <div className="p-2 bg-violet-100 text-violet-600 rounded-lg">
             <Settings size={24} />
           </div>
           Deploy Contract
@@ -130,13 +130,13 @@ export default function AdminPage() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mt-6 p-6 bg-emerald-50 border border-emerald-200 rounded-2xl shadow-sm"
+              className="mt-6 p-6 bg-violet-50 border border-violet-200 rounded-2xl shadow-sm"
             >
               <div className="flex items-center gap-3 mb-4">
-                <CheckCircle size={28} className="text-emerald-500" />
-                <div className="text-lg font-bold text-emerald-800">Successfully Deployed to Preprod!</div>
+                <CheckCircle size={28} className="text-violet-500" />
+                <div className="text-lg font-bold text-violet-800">Successfully Deployed to Preprod!</div>
               </div>
-              <div className="bg-white p-4 rounded-xl border border-emerald-100 flex items-center justify-between gap-4 shadow-inner">
+              <div className="bg-white p-4 rounded-xl border border-violet-100 flex items-center justify-between gap-4 shadow-inner">
                 <span className="font-mono text-sm text-slate-600 truncate">{deployedAddress}</span>
                 <button 
                   onClick={() => {
@@ -146,7 +146,7 @@ export default function AdminPage() {
                       setTimeout(() => setCopied(false), 2000);
                     }
                   }}
-                  className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${copied ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+                  className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${copied ? 'bg-violet-100 text-violet-700' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
                 >
                   <Copy size={16} />
                   {copied ? 'Copied!' : 'Copy'}
@@ -157,7 +157,7 @@ export default function AdminPage() {
                   href={`https://preprod.midnightexplorer.com/contracts/${deployedAddress}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
+                  className="inline-flex items-center gap-2 text-violet-600 hover:text-violet-700 font-medium transition-colors"
                 >
                   View on Midnight Explorer <ExternalLink size={16} />
                 </a>

@@ -12,29 +12,29 @@ interface TickerItem {
 export function MarqueeTicker() {
   const items: TickerItem[] = [
     {
-      icon: <Activity size={14} className="text-emerald-500" />,
+      icon: <Activity size={14} className="text-violet-500" />,
       label: 'Network',
       value: 'Midnight Preprod Testnet',
       badge: 'Live',
     },
     {
-      icon: <Lock size={14} className="text-emerald-500" />,
+      icon: <Lock size={14} className="text-violet-500" />,
       label: 'Privacy Model',
       value: 'Zero-Knowledge Cryptography',
     },
     {
-      icon: <Cpu size={14} className="text-emerald-500" />,
+      icon: <Cpu size={14} className="text-violet-500" />,
       label: 'Prover',
       value: 'Local Client WASM Circuit',
       badge: '< 2.4s',
     },
     {
-      icon: <Database size={14} className="text-emerald-500" />,
+      icon: <Database size={14} className="text-violet-500" />,
       label: 'Contract',
       value: `${PREPROD_CONTRACT_ADDRESS.slice(0, 10)}...${PREPROD_CONTRACT_ADDRESS.slice(-6)}`,
     },
     {
-      icon: <ShieldCheck size={14} className="text-emerald-500" />,
+      icon: <ShieldCheck size={14} className="text-violet-500" />,
       label: 'Security',
       value: 'Non-Custodial · Zero Data Leaks',
     },
@@ -53,13 +53,13 @@ export function MarqueeTicker() {
         {displayItems.map((item, idx) => (
           <div
             key={idx}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100/70 border border-slate-200/80 text-xs text-slate-700 whitespace-nowrap shadow-2xs hover:border-emerald-300 transition-colors"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100/70 border border-slate-200/80 text-xs text-slate-700 whitespace-nowrap shadow-2xs hover:border-violet-300 transition-colors"
           >
             {item.icon}
             <span className="font-semibold text-slate-500">{item.label}:</span>
             <span className="font-bold text-slate-800">{item.value}</span>
             {item.badge && (
-              <span className="px-2 py-0.5 rounded-md bg-emerald-100/80 text-emerald-800 text-[10px] font-extrabold uppercase tracking-wide">
+              <span className="px-2 py-0.5 rounded-md bg-violet-100/80 text-violet-800 text-[10px] font-extrabold uppercase tracking-wide">
                 {item.badge}
               </span>
             )}

@@ -48,13 +48,13 @@ export default function LandingPage() {
         {/* Animated Network Pill */}
         <motion.div 
           variants={itemVariants} 
-          className="group inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white/90 border border-emerald-200/90 shadow-sm text-slate-800 font-bold text-xs uppercase tracking-widest mb-8 hover:shadow-md hover:border-emerald-400 hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-md"
+          className="group inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white/90 border border-violet-200/90 shadow-sm text-slate-800 font-bold text-xs uppercase tracking-widest mb-8 hover:shadow-md hover:border-violet-400 hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-md"
         >
           <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
           </span>
-          <span className="text-emerald-700">Midnight Network Preprod</span>
+          <span className="text-violet-700">Midnight Network Preprod</span>
           <span className="text-slate-300">|</span>
           <span className="text-slate-500 font-medium">Privacy-First Verifications</span>
         </motion.div>
@@ -65,7 +65,7 @@ export default function LandingPage() {
           className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 text-slate-900 dark:text-white leading-[1.08]"
         >
           Zero-Knowledge <br className="hidden sm:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-500">
             Tech Grant Verification
           </span>
         </motion.h1>
@@ -82,14 +82,14 @@ export default function LandingPage() {
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto z-20">
           <Link
             to="/verify"
-            className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-500 text-white font-bold transition-all text-base hover:bg-emerald-600 rounded-2xl shadow-[0_4px_16px_rgba(16,185,129,0.36)] hover:shadow-[0_8px_24px_rgba(16,185,129,0.28)] hover:-translate-y-1"
+            className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-violet-500 text-white font-bold transition-all text-base hover:bg-violet-600 rounded-2xl shadow-[0_4px_16px_rgba(16,185,129,0.36)] hover:shadow-[0_8px_24px_rgba(16,185,129,0.28)] hover:-translate-y-1"
           >
             <span>Verify Eligibility</span>
             <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
           <Link
             to="/about"
-            className="inline-flex items-center justify-center px-8 py-4 bg-white/80 text-slate-700 font-bold hover:text-emerald-700 hover:bg-slate-50/90 border border-slate-200/90 transition-all text-base rounded-2xl shadow-sm hover:shadow backdrop-blur-md"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white/80 text-slate-700 font-bold hover:text-violet-700 hover:bg-slate-50/90 border border-slate-200/90 transition-all text-base rounded-2xl shadow-sm hover:shadow backdrop-blur-md"
           >
             Architecture Guide
           </Link>
@@ -111,7 +111,7 @@ export default function LandingPage() {
           </div>
           <div className="hidden md:block w-px h-14 bg-slate-200 dark:bg-slate-700" />
           <div className="text-center px-4">
-            <p className="text-4xl md:text-5xl font-extrabold text-emerald-500 mb-1 tracking-tight">&lt; 2.5s</p>
+            <p className="text-4xl md:text-5xl font-extrabold text-violet-500 mb-1 tracking-tight">&lt; 2.5s</p>
             <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">WASM Proof Generation</p>
             <p className="text-xs text-slate-400 mt-0.5">High-speed local circuit</p>
           </div>
@@ -142,7 +142,7 @@ export default function LandingPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <SpotlightCard>
-            <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-6 shadow-inner text-emerald-600">
+            <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center mb-6 shadow-inner text-violet-600">
               <LockKeyhole size={28} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2.5">Private Witnesses</h3>
@@ -152,7 +152,7 @@ export default function LandingPage() {
           </SpotlightCard>
 
           <SpotlightCard>
-            <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-6 shadow-inner text-emerald-600">
+            <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center mb-6 shadow-inner text-violet-600">
               <ShieldCheck size={28} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2.5">Decentralized Verifier</h3>
@@ -162,7 +162,7 @@ export default function LandingPage() {
           </SpotlightCard>
 
           <SpotlightCard>
-            <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-6 shadow-inner text-emerald-600">
+            <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center mb-6 shadow-inner text-violet-600">
               <Zap size={28} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2.5">Instant Verifiable Proof</h3>
@@ -176,7 +176,7 @@ export default function LandingPage() {
       {/* 3-Stage Cryptographic Pipeline (How It Works) */}
       <motion.section variants={itemVariants} className="max-w-4xl mx-auto px-4 mt-12 w-full">
         <div className="text-center mb-12">
-          <span className="text-emerald-600 font-extrabold text-xs tracking-widest uppercase mb-2 block">
+          <span className="text-violet-600 font-extrabold text-xs tracking-widest uppercase mb-2 block">
             Cryptographic Pipeline
           </span>
           <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">How ScholarShield Works</h2>
@@ -185,7 +185,7 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
           {/* Card 1 */}
           <div className="glass-card p-7 flex flex-col items-start bg-white/90 border-slate-200/90 relative">
-            <div className="w-12 h-12 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center shrink-0 mb-5 font-mono font-bold text-lg shadow-md">
+            <div className="w-12 h-12 rounded-xl bg-slate-900 text-violet-400 flex items-center justify-center shrink-0 mb-5 font-mono font-bold text-lg shadow-md">
               01
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">Input Sensitive Data</h3>
@@ -199,21 +199,21 @@ export default function LandingPage() {
 
           {/* Card 2 */}
           <div className="glass-card p-7 flex flex-col items-start bg-white/90 border-slate-200/90 relative">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center shrink-0 mb-5 font-mono font-bold text-lg shadow-md shadow-emerald-500/30">
+            <div className="w-12 h-12 rounded-xl bg-violet-500 text-white flex items-center justify-center shrink-0 mb-5 font-mono font-bold text-lg shadow-md shadow-violet-500/30">
               02
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">WASM Proof Synthesis</h3>
             <p className="text-slate-600 text-sm leading-relaxed">
               Midnight Compact circuit executes locally. It synthesizes a zero-knowledge proof stating you satisfy the scholarship criteria.
             </p>
-            <div className="mt-4 pt-3 border-t border-slate-100 text-xs text-emerald-600 font-mono">
+            <div className="mt-4 pt-3 border-t border-slate-100 text-xs text-violet-600 font-mono">
               [Zero-Knowledge Math]
             </div>
           </div>
 
           {/* Card 3 */}
           <div className="glass-card p-7 flex flex-col items-start bg-white/90 border-slate-200/90 relative">
-            <div className="w-12 h-12 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center shrink-0 mb-5 font-mono font-bold text-lg shadow-md">
+            <div className="w-12 h-12 rounded-xl bg-slate-900 text-violet-400 flex items-center justify-center shrink-0 mb-5 font-mono font-bold text-lg shadow-md">
               03
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">On-Chain Attestation</h3>
@@ -229,10 +229,10 @@ export default function LandingPage() {
 
       {/* Bottom CTA Banner */}
       <motion.section variants={itemVariants} className="max-w-4xl mx-auto px-4 mt-10 w-full">
-        <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl border border-slate-800">
-          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-violet-950 p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl border border-slate-800">
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
-            <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mb-5">
+            <div className="w-14 h-14 rounded-2xl bg-violet-500/20 border border-violet-500/40 text-violet-400 flex items-center justify-center mb-5">
               <Sparkles size={28} />
             </div>
             <h3 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">
@@ -243,7 +243,7 @@ export default function LandingPage() {
             </p>
             <Link
               to="/verify"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5 text-base"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-violet-500 hover:bg-violet-600 text-white font-bold rounded-2xl transition-all shadow-lg hover:shadow-violet-500/25 hover:-translate-y-0.5 text-base"
             >
               <span>Launch Verifier Now</span>
               <ArrowRight size={18} />

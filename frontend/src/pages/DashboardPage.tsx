@@ -33,8 +33,8 @@ export default function DashboardPage() {
       className="w-full max-w-4xl mx-auto py-8"
     >
       <div className="mb-12 text-center">
-        <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-          <BarChart3 size={40} className="text-emerald-500" />
+        <div className="w-20 h-20 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+          <BarChart3 size={40} className="text-violet-500" />
         </div>
         <h1 className="text-4xl font-extrabold text-slate-800 mb-3 tracking-tight">Analytics Dashboard</h1>
         <p className="text-slate-500 text-lg max-w-lg mx-auto">
@@ -48,9 +48,9 @@ export default function DashboardPage() {
           <div className="text-4xl font-extrabold text-slate-800">{stats.total}</div>
           <div className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-2">Total Proofs</div>
         </div>
-        <div className="glass-card p-6 border-b-4 border-b-emerald-500 flex flex-col items-center justify-center text-center">
-          <CheckCircle size={32} className="text-emerald-500 mb-3" />
-          <div className="text-4xl font-extrabold text-emerald-600">{stats.passed}</div>
+        <div className="glass-card p-6 border-b-4 border-b-violet-500 flex flex-col items-center justify-center text-center">
+          <CheckCircle size={32} className="text-violet-500 mb-3" />
+          <div className="text-4xl font-extrabold text-violet-600">{stats.passed}</div>
           <div className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-2">Eligible</div>
         </div>
         <div className="glass-card p-6 border-b-4 border-b-red-400 flex flex-col items-center justify-center text-center">
@@ -65,7 +65,7 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-slate-50 p-5 rounded-xl border border-slate-100">
             <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Status</div>
-            <div className={`text-2xl font-extrabold ${isActive ? 'text-emerald-500' : 'text-red-500'}`}>
+            <div className={`text-2xl font-extrabold ${isActive ? 'text-violet-500' : 'text-red-500'}`}>
               {isActive ? 'Active' : 'Paused'}
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function DashboardPage() {
           <h2 className="text-2xl font-bold text-slate-800 mb-6">Pass/Fail Ratio</h2>
           <div className="w-full h-10 flex rounded-full overflow-hidden shadow-inner bg-slate-100">
             <div 
-              className="bg-emerald-500 transition-all duration-1000 ease-out"
+              className="bg-violet-500 transition-all duration-1000 ease-out"
               style={{ width: `${(stats.passed / stats.total) * 100}%` }} 
               title={`Passed: ${stats.passed}`}
             />
@@ -100,7 +100,7 @@ export default function DashboardPage() {
             />
           </div>
           <div className="flex justify-between mt-3 text-sm font-bold">
-            <span className="text-emerald-600">{Math.round((stats.passed / stats.total) * 100)}% Eligible</span>
+            <span className="text-violet-600">{Math.round((stats.passed / stats.total) * 100)}% Eligible</span>
             <span className="text-red-500">{Math.round((stats.failed / stats.total) * 100)}% Ineligible</span>
           </div>
         </div>
@@ -143,7 +143,7 @@ export default function DashboardPage() {
                     <td className="py-4 px-4 text-sm text-slate-600">{record.incomeRange}</td>
                     <td className="py-4 px-4">
                       {record.result === 'eligible' ? (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 text-xs font-bold">
                           <CheckCircle size={14} /> Eligible
                         </span>
                       ) : record.result === 'ineligible' ? (
@@ -157,7 +157,7 @@ export default function DashboardPage() {
                     <td className="py-4 px-4">
                       {record.txId ? (
                         <div className="flex gap-3 items-center">
-                          <a href={explorerTxUrl(record.txId)} target="_blank" rel="noreferrer" className="text-emerald-600 hover:text-emerald-700 text-sm font-medium flex items-center gap-1 transition-colors">
+                          <a href={explorerTxUrl(record.txId)} target="_blank" rel="noreferrer" className="text-violet-600 hover:text-violet-700 text-sm font-medium flex items-center gap-1 transition-colors">
                             View <ExternalLink size={14} />
                           </a>
                           <ProofExport proofId={record.id} txHash={record.txId} timestamp={record.timestamp} />

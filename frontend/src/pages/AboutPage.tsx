@@ -12,8 +12,8 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-            <Shield size={40} className="text-emerald-500" />
+          <div className="w-20 h-20 bg-violet-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+            <Shield size={40} className="text-violet-500" />
           </div>
           <h1 className="text-4xl font-extrabold text-slate-800 mb-3 tracking-tight">About zkScholar</h1>
           <p className="text-slate-500 text-lg">
@@ -43,13 +43,13 @@ export default function AboutPage() {
           </motion.section>
 
           <motion.section 
-            className="glass-card p-8 md:p-10 border-l-4 border-l-emerald-500"
+            className="glass-card p-8 md:p-10 border-l-4 border-l-violet-500"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
             <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3">
-              <div className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
+              <div className="p-2 bg-violet-100 text-violet-600 rounded-lg">
                 <Code size={24} /> 
               </div>
               The ZK Solution
@@ -61,19 +61,19 @@ export default function AboutPage() {
             </p>
             <ul className="space-y-4 text-slate-600 bg-slate-50 p-6 rounded-xl border border-slate-100">
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2.5 shrink-0"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2.5 shrink-0"></span>
                 <span>Your GPA and Income act as <strong className="text-slate-800">private witnesses</strong>.</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2.5 shrink-0"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2.5 shrink-0"></span>
                 <span>A local WASM circuit computes whether you meet the criteria.</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2.5 shrink-0"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2.5 shrink-0"></span>
                 <span>Only a cryptographic proof (a True/False assertion) is submitted to the blockchain.</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2.5 shrink-0"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-violet-500 mt-2.5 shrink-0"></span>
                 <span>Your private data never leaves your browser.</span>
               </li>
             </ul>

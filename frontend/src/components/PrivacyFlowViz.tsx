@@ -43,11 +43,11 @@ export default function PrivacyFlowViz({ status }: { status: VerifyStatus }) {
   return (
     <div className="glass-card p-6 md:p-8 bg-white/90 border border-slate-200/90 shadow-sm rounded-2xl relative overflow-hidden">
       {/* Subtle top gradient accent */}
-      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-400 via-teal-500 to-emerald-600" />
+      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-violet-400 via-fuchsia-500 to-violet-600" />
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-emerald-100/80 text-emerald-600 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-violet-100/80 text-violet-600 flex items-center justify-center">
             <ShieldCheck size={18} />
           </div>
           <div>
@@ -56,7 +56,7 @@ export default function PrivacyFlowViz({ status }: { status: VerifyStatus }) {
           </div>
         </div>
         <span className="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-mono font-medium">
-          <span className={`w-2 h-2 rounded-full ${isAnyActive ? 'bg-emerald-500 animate-ping' : 'bg-slate-400'}`} />
+          <span className={`w-2 h-2 rounded-full ${isAnyActive ? 'bg-violet-500 animate-ping' : 'bg-slate-400'}`} />
           {isProving ? 'WASM Proving...' : isSubmitting ? 'Submitting to Chain...' : isDone ? 'Verified On-Chain' : 'Client Ready'}
         </span>
       </div>
@@ -71,7 +71,7 @@ export default function PrivacyFlowViz({ status }: { status: VerifyStatus }) {
               transition={{ delay: i * 0.1 }}
               className={`p-4 rounded-xl border transition-all duration-300 flex flex-col justify-between h-full ${
                 step.active
-                  ? 'bg-emerald-50/70 border-emerald-300/80 shadow-xs'
+                  ? 'bg-violet-50/70 border-violet-300/80 shadow-xs'
                   : 'bg-slate-50/70 border-slate-200/70'
               }`}
             >
@@ -79,7 +79,7 @@ export default function PrivacyFlowViz({ status }: { status: VerifyStatus }) {
                 <div
                   className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
                     step.active
-                      ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/30'
+                      ? 'bg-violet-500 text-white shadow-sm shadow-violet-500/30'
                       : 'bg-slate-200 text-slate-600'
                   }`}
                 >
@@ -105,8 +105,8 @@ export default function PrivacyFlowViz({ status }: { status: VerifyStatus }) {
       </div>
 
       {/* Bottom Privacy Assurance Banner */}
-      <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-50/60 to-slate-50/80 border border-emerald-200/70 flex items-start gap-3 text-xs leading-relaxed text-slate-700">
-        <div className="p-1.5 rounded-lg bg-emerald-100 text-emerald-700 shrink-0 mt-0.5">
+      <div className="p-4 rounded-xl bg-gradient-to-r from-violet-50/60 to-slate-50/80 border border-violet-200/70 flex items-start gap-3 text-xs leading-relaxed text-slate-700">
+        <div className="p-1.5 rounded-lg bg-violet-100 text-violet-700 shrink-0 mt-0.5">
           <Lock size={15} />
         </div>
         <div>

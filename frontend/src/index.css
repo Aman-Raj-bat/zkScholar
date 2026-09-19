@@ -2,12 +2,12 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-emerald-50: #ecfdf5;
-  --color-emerald-100: #d1fae5;
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
-  --color-emerald-700: #047857;
+  --color-violet-50: #f5f3ff;
+  --color-violet-100: #ede9fe;
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+  --color-violet-700: #6d28d9;
   
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
@@ -23,20 +23,20 @@
   :root {
     --background: #f8fafc;
     --foreground: #0f172a;
-    --primary: #10b981;
+    --primary: #8b5cf6;
     --primary-foreground: #ffffff;
   }
 
   .dark {
     --background: #0b1120;
     --foreground: #f8fafc;
-    --primary: #10b981;
+    --primary: #8b5cf6;
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
     background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
     background-size: 24px 24px;
     overflow-x: hidden;
@@ -54,11 +54,11 @@
   }
   
   .glass-card-hover {
-    @apply hover:border-emerald-300/80 hover:shadow-[0_12px_32px_rgba(16,185,129,0.08)] hover:-translate-y-1;
+    @apply hover:border-violet-300/80 hover:shadow-[0_12px_32px_rgba(139,92,246,0.08)] hover:-translate-y-1;
   }
 
   .glass-button {
-    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-500 text-white font-bold transition-all hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(16,185,129,0.39)] hover:shadow-[0_6px_20px_rgba(16,185,129,0.25)] rounded-xl overflow-hidden active:translate-y-0;
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-violet-500 text-white font-bold transition-all hover:-translate-y-0.5 shadow-[0_4px_14px_rgba(139,92,246,0.39)] hover:shadow-[0_6px_20px_rgba(139,92,246,0.25)] rounded-xl overflow-hidden active:translate-y-0;
   }
   
   .glass-button::before {

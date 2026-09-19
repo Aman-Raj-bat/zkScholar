@@ -42,7 +42,7 @@ export default function NavBar() {
           {/* Logo & Network Badge */}
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-              <div className="w-9 h-9 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+              <div className="w-9 h-9 rounded-xl bg-violet-500 text-white flex items-center justify-center shadow-md shadow-violet-500/20 group-hover:scale-105 transition-transform">
                 <Shield size={20} />
               </div>
               <span className="text-lg font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -50,8 +50,8 @@ export default function NavBar() {
               </span>
             </Link>
 
-            <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/70 text-[11px] font-bold text-emerald-700">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-50 border border-violet-200/70 text-[11px] font-bold text-violet-700">
+              <span className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
               <span>Preprod</span>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function NavBar() {
                 to="/"
                 className={`px-3.5 py-1.5 rounded-lg transition-all ${
                   isActive("/") 
-                    ? "bg-white text-emerald-700 font-bold shadow-2xs" 
+                    ? "bg-white text-violet-700 font-bold shadow-2xs" 
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -73,7 +73,7 @@ export default function NavBar() {
                 to="/verify"
                 className={`px-3.5 py-1.5 rounded-lg transition-all ${
                   isActive("/verify") 
-                    ? "bg-white text-emerald-700 font-bold shadow-2xs" 
+                    ? "bg-white text-violet-700 font-bold shadow-2xs" 
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -83,7 +83,7 @@ export default function NavBar() {
                 to="/dashboard"
                 className={`px-3.5 py-1.5 rounded-lg transition-all ${
                   isActive("/dashboard") 
-                    ? "bg-white text-emerald-700 font-bold shadow-2xs" 
+                    ? "bg-white text-violet-700 font-bold shadow-2xs" 
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -93,7 +93,7 @@ export default function NavBar() {
                 to="/about"
                 className={`px-3.5 py-1.5 rounded-lg transition-all ${
                   isActive("/about") 
-                    ? "bg-white text-emerald-700 font-bold shadow-2xs" 
+                    ? "bg-white text-violet-700 font-bold shadow-2xs" 
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -137,28 +137,28 @@ export default function NavBar() {
               <Link
                 to="/"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-bold text-slate-800 hover:text-emerald-600 hover:bg-emerald-50/70 transition-colors px-4 py-3 rounded-xl"
+                className="text-sm font-bold text-slate-800 hover:text-violet-600 hover:bg-violet-50/70 transition-colors px-4 py-3 rounded-xl"
               >
                 Home
               </Link>
               <Link
                 to="/verify"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-bold text-slate-800 hover:text-emerald-600 hover:bg-emerald-50/70 transition-colors px-4 py-3 rounded-xl"
+                className="text-sm font-bold text-slate-800 hover:text-violet-600 hover:bg-violet-50/70 transition-colors px-4 py-3 rounded-xl"
               >
                 Verify Eligibility
               </Link>
               <Link
                 to="/dashboard"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-bold text-slate-800 hover:text-emerald-600 hover:bg-emerald-50/70 transition-colors px-4 py-3 rounded-xl"
+                className="text-sm font-bold text-slate-800 hover:text-violet-600 hover:bg-violet-50/70 transition-colors px-4 py-3 rounded-xl"
               >
                 Proof History Dashboard
               </Link>
               <Link
                 to="/about"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-bold text-slate-800 hover:text-emerald-600 hover:bg-emerald-50/70 transition-colors px-4 py-3 rounded-xl"
+                className="text-sm font-bold text-slate-800 hover:text-violet-600 hover:bg-violet-50/70 transition-colors px-4 py-3 rounded-xl"
               >
                 How It Works
               </Link>
