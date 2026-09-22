@@ -1,19 +1,21 @@
 # zkScholar
 
-**Privacy-Preserving Tech Grant Verification on the Midnight Network**
+**Privacy-Preserving Scholarship Verification on the Midnight Network**
+
 
 [![Midnight Network](https://img.shields.io/badge/Network-Midnight-blueviolet?style=for-the-badge)](https://midnight.network)
 [![Language](https://img.shields.io/badge/Language-Compact-orange?style=for-the-badge)](https://midnight.network)
 [![Tested With](https://img.shields.io/badge/Tested%20With-Vitest-yellow?style=for-the-badge)](https://vitest.dev)
 [![State](https://img.shields.io/badge/Level-4%20Complete-success?style=for-the-badge)](#)
 [![CI](https://github.com/Aman-Raj-bat/zkScholar/actions/workflows/ci.yaml/badge.svg)](https://github.com/Aman-Raj-bat/zkScholar/actions/workflows/ci.yaml)
-[![Deploy on Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/new/clone?repository-url=https://github.com/Aman-Raj-bat/zkScholar&root=frontend)
+[![Deploy on Netlify](https://img.shields.io/badge/Deploy-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://zk-scholar.netlify.app/)
+[![X (Twitter) Follow](https://img.shields.io/twitter/follow/amanraj316?style=for-the-badge)](https://x.com/amanraj316)
 
 ---
 
 ## Abstract
 
-zkScholar is a decentralized application (dApp) engineered on the **Midnight Network** utilizing the **Compact** smart contract language. The platform serves as a Zero-Knowledge (ZK) eligibility gate for tech grants. It allows students to cryptographically prove that they meet stringent academic and financial requirements (such as minimum CS aptitude score, coding hours, and maximum family income) without ever exposing their raw, sensitive data to centralized portals, grant boards, or the public blockchain ledger.
+zkScholar is a decentralized application (dApp) engineered on the **Midnight Network** utilizing the **Compact** smart contract language. The platform serves as a Zero-Knowledge (ZK) eligibility gate for academic scholarships and tech grants. It allows students to cryptographically prove that they meet stringent academic and financial requirements (such as minimum GPA and maximum family income) without ever exposing their raw, sensitive data to centralized portals, scholarship boards, or the public blockchain ledger.
 
 ---
 
@@ -26,14 +28,17 @@ zkScholar is a decentralized application (dApp) engineered on the **Midnight Net
 5. [Hackathon Progression (Levels 1-4)](#hackathon-progression-levels-1-4)
 6. [Project Showcase & Verification Proofs](#project-showcase--verification-proofs)
 7. [Local Development & Setup Guide](#local-development--setup-guide)
+8. [August Submission Updates](#august-submission-updates)
+9. [Author & Acknowledgements](#author--acknowledgements)
 
 ---
 
 ## Official Submission Links
 
-- **Live Application (Netlify):** https://zk-scholar.netlify.app/
-- **Deployed Contract (Midnight Preprod):** 5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e
-- **Demo Video Presentation:** [Demo Video](https://drive.google.com/file/d/18nvO0s5JXgGrngQvlMG7VHUd33NUQtqu/view?usp=sharing)
+- **Live Application (Netlify):** [https://zk-scholar.netlify.app/](https://zk-scholar.netlify.app/)
+- **Deployed Contract (Midnight Preprod):** [5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e](https://preprod.midnightexplorer.com/contracts/5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e)
+- **Demo Video Presentation:** [Watch on Google Drive](https://drive.google.com/file/d/18nvO0s5JXgGrngQvlMG7VHUd33NUQtqu/view?usp=sharing)
+- **Public Brand Presence (X Profile):** [https://x.com/amanraj316/status/2102467601859527155?s=20](https://x.com/amanraj316/status/2102467601859527155?s=20)
 
 ---
 
@@ -42,8 +47,8 @@ zkScholar is a decentralized application (dApp) engineered on the **Midnight Net
 zkScholar bridges modern web infrastructure with cutting-edge cryptographic privacy networks.
 
 - **Smart Contract Layer:** Written in Compact (`contracts/zkscholar.compact`), compiled to WebAssembly (WASM) and Zero-Knowledge Intermediate Representation (ZKIR). Deployed on the Midnight Preprod network.
-- **Frontend Application Layer:** Built with React, TypeScript, and Vite. Styled using a custom cyber-dark design system via native CSS.
-- **Wallet Infrastructure:** Integrated with the `@midnight-ntwrk/dapp-connector-api` to interface directly with the 1AM browser extension wallet for local proof generation and transaction signing.
+- **Frontend Application Layer:** Built with React, TypeScript, and Vite. Styled using a custom cyber-dark design system via Tailwind CSS.
+- **Wallet Infrastructure:** Integrated with the `@midnight-ntwrk/dapp-connector-api` to interface directly with the 1AM and Lace browser extension wallets for local proof generation and transaction signing.
 - **Testing & CI/CD:** End-to-end testing utilizing Vitest and local Docker-based Midnight environments. Automated CI/CD pipelines via GitHub Actions.
 
 ---
@@ -58,78 +63,196 @@ In legacy systems, students must upload unencrypted, highly sensitive documents 
 ### The zkScholar ZK Solution
 zkScholar eliminates the need for data transmission. Verification is entirely mathematical.
 
-1. **Public State (Ledger Data):** The grant board publishes the eligibility thresholds (`min_cs_score`, `min_coding_hours`, and `max_family_income`) to the public Midnight ledger. These values are fully transparent and verifiable by any observer.
-2. **Private Witness (User Data):** The student inputs their actual CS score, coding hours, and family income locally into their browser. These values are designated as "private witnesses" in the Compact circuit.
-3. **Local Proof Generation:** The student's browser wallet runs a localized Zero-Knowledge circuit. It checks if the private witness data satisfies the public state thresholds and generates a unique nullifier.
+1. **Public State (Ledger Data):** The scholarship board publishes the eligibility thresholds (`min_gpa` and `max_income`) to the public Midnight ledger. These values are fully transparent and verifiable by any observer.
+2. **Private Witness (User Data):** The student inputs their actual GPA and family income locally into their browser. These values are designated as "private witnesses" in the Compact circuit.
+3. **Local Proof Generation:** The student's browser wallet runs a localized Zero-Knowledge circuit. It checks if the private witness data satisfies the public state thresholds.
 4. **On-Chain Verification:** The wallet submits a cryptographic proof to the Midnight blockchain. The network validators verify the math without ever seeing the underlying private inputs.
 
 **Observer Matrix:**
-- **Visible on-chain:** The grant thresholds, the user's public address, the nullifier hash, and the fact that a valid proof was submitted.
-- **Hidden permanently:** The student's actual CS score, coding hours, family's actual income, and the exact margin by which they exceeded or missed the threshold.
+- **Visible on-chain:** The scholarship thresholds, the user's public address, the fact that a valid proof was submitted.
+- **Hidden permanently:** The student's actual GPA, their family's actual income, and the margin by which they exceeded or missed the threshold.
+
+---
+
+## August Submission Updates
+
+### Bug Fixes & Refactors
+
+- **Wallet Connection Leaks**: Cleans up polling intervals on disconnect.
+- **Footer Address Truncation**: Ensures contract addresses don't overflow on mobile.
+- **Mobile Navbar**: Hide text on small screens, use flex gap.
+- **Double-submit bugs**: Disabled verify button when processing.
+- **Private State Password**: Securely loaded from environment variables.
+- **Input Edge Cases**: Empty strings, negative values, overflow amounts now guarded.
+- **Custom Hooks**: Extracted logic into `useVerifySubmit`.
+- **Accessibility**: Added ARIA live regions and keyboard handlers.
+
+### Test Additions
+
+| Test | What it covers |
+|------|----------------|
+| `Passes verification at exact GPA boundary (800n)` | Boundary: GPA == min_gpa should pass (≥ check) |
+| `Passes verification at exact income boundary (250000n)` | Boundary: income == max_income should pass (≤ check) |
+| `Fails verification when both GPA and income are out of range` | Double-failure: both inputs violate thresholds simultaneously |
+| `Fails verification for zero GPA` | Edge case: zero-value GPA should always be rejected |
+| `Eligibility Pre-checker Tests` | Validates that client-side logic perfectly matches circuit thresholds |
+| `Proof History Utility Tests` | Ensures proofs are properly serialized, saved, and loaded from localStorage |
+
+### New Features (Mid-August Sprint)
+
+- **Analytics Dashboard Page** (`frontend/src/pages/DashboardPage.tsx`)
+  - Real-time statistics summary cards for total proofs, eligible proofs, and ineligible proofs
+  - LocalStorage-based proof history tracking with timestamps and transaction links
+  - SVG bar chart for visualizing pass/fail ratios
+  - Clear history functionality with confirmation guard
+
+- **Client-Side Eligibility Pre-checker** (`frontend/src/hooks/useEligibilityPrecheck.ts`)
+  - Simulates the Zero-Knowledge circuit locally before triggering the wallet extension
+  - Displays instant visual feedback (likely eligible, likely ineligible, invalid input)
+  - Helps users avoid paying transaction fees for obviously invalid credentials
+
+- **Live On-chain Criteria Reader** (`frontend/src/hooks/useLiveCriteria.ts`)
+  - Fetches the active minimum GPA and maximum income directly from the Midnight ledger
+  - Features a robust fallback mechanism to environment variables if the indexer is unavailable
+  - Eliminates reliance on hardcoded criteria on the verification page
+
+- **UI & UX Improvements**
+  - Added a lightweight Toast Notification system (`frontend/src/components/ToastNotification.tsx`) for transaction feedback
+  - Added an admin network guard that visually warns deployers if their wallet is connected to a local node instead of Preprod
+  - Implemented double-submit guards using React `useRef` to prevent concurrent wallet invocations
+  - Added graceful error handling for wallet connection rejections
 
 ---
 
 ## Smart Contract Implementation
 
-The core logic revolves around a custom Compact smart contract with a series of zero-knowledge circuits ensuring double-claim prevention through nullifiers and state verifications.
-For complete details on the contract functions, please refer to the `contracts/zkscholar.compact` source code.
+The Compact contract (`contracts/zkscholar.compact`) is designed for maximum security and data minimization.
+
+```compact
+pragma language_version >=0.22.0;
+
+export ledger min_gpa: Uint<32>;
+export ledger max_income: Uint<32>;
+
+// The constructor utilizes disclose() to explicitly make the thresholds public.
+constructor(initial_min_gpa: Uint<32>, initial_max_income: Uint<32>) {
+    min_gpa = disclose(initial_min_gpa);
+    max_income = disclose(initial_max_income);
+}
+
+// The verification circuit accepts private witnesses (gpa, income).
+// Because disclose() is NOT used here, the inputs remain mathematically shielded.
+export circuit verify_eligibility(gpa: Uint<32>, income: Uint<32>): [] {
+    assert(gpa >= min_gpa, "GPA does not meet minimum requirement");
+    assert(income <= max_income, "Income exceeds maximum threshold");
+}
+```
 
 ---
 
 ## Hackathon Progression (Levels 1-4)
 
-### Level 1: Core Smart Contract
-- Toolchain configured (Node 22, Docker, Compact Compiler)
-- First Compact contract deployed to Preprod Network
+This repository fulfills the strict progression requirements of the "New Moon to Full" Midnight Builder Journey.
 
-### Level 2: Interactive Frontend
-- Midnight Wallet Connector integrated into a React SPA
-- Proofs are constructed completely off-chain
+### Level 1: Setup & First Contract
+- **Objective:** Establish the WSL2/Docker toolchain, write the foundational Compact contract, and document the product proposal (Age / Eligibility Gate).
+- **Status:** Complete. The contract successfully compiles, generating the required `zkir` and `bzkir` proving artifacts.
 
-### Level 3: Production-Ready dApp
-- 11 comprehensive Vitest test suites developed
-- Automated CI/CD integration with GitHub Actions
-- Full polish and robust error handling built in
+### Level 2: Frontend Integration
+- **Objective:** Develop a robust frontend interface and establish wallet connectivity.
+- **Status:** Complete. The application successfully interfaces with the 1AM wallet via the Midnight DApp Connector API.
+- **Deployed Contract Address (Preprod):** 
+  [5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e](https://preprod.midnightexplorer.com/contracts/5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e)
 
-### Level 4: Complete Submission
-- Fully comprehensive submission spanning all challenge requirements.
+### Level 3: Production-Grade dApp
+- **Objective:** Implement automated testing, Continuous Integration (CI/CD), and a polished user interface.
+- **Status:** Complete. Vitest suites assert both successful verification and expected failure modes. GitHub Actions workflows automatically test the contract on every push.
+
+### Level 4: MVP Goes Live
+- **Objective:** Deploy the frontend to a production CDN, finalize documentation, and establish a public brand presence.
+- **Status:** Complete.
+  - **Live Application:** [https://zk-scholar.netlify.app/](https://zk-scholar.netlify.app/)
+  - **Deployed Contract (Preprod):** [5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e](https://preprod.midnightexplorer.com/contracts/5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e)
+  - **Demo Video Presentation:** [Watch on Google Drive](https://drive.google.com/file/d/18nvO0s5JXgGrngQvlMG7VHUd33NUQtqu/view?usp=sharing)
+  - **Public Brand Presence (X Profile):** [https://x.com/amanraj316/status/2102467601859527155?s=20](https://x.com/amanraj316/status/2102467601859527155?s=20)
+
+---
+
+## Project Showcase & Verification Proofs
+
+### User Interface 
+![UI Screenshot 1](./sub%20assets/ui1.png)
+![UI Screenshot 2](./sub%20assets/ui2.png)
+![UI Screenshot 3](./sub%20assets/ui3.png)
+
+### CI/CD Pipeline
+![CI/CD Pipeline](./sub%20assets/cicd%20ss.png)
+
+### Contract Compilation Artifacts
+![Successful Compilation](./sub%20assets/yarn%20compile%20ss.png)
 
 ---
 
 ## Local Development & Setup Guide
 
-### Prerequisites
-- Node.js v22
-- Docker Desktop
-- Midnight Compact Compiler (`compact --version`)
+For developers and auditors wishing to verify the Zero-Knowledge circuits and run the application locally, please follow these instructions carefully.
 
-### Quick Start
+### 1. System Requirements
+- **OS:** Windows Subsystem for Linux 2 (WSL2 - Ubuntu 24.04/26.04) or native Linux/macOS.
+- **Containerization:** Docker Desktop with WSL2 integration enabled.
+- **Runtime:** Node.js (v22.0.0 or higher) and Yarn package manager.
 
+### 2. Dependency Initialization
+Clone the repository and install the workspace dependencies from the root directory:
 ```bash
 git clone https://github.com/Aman-Raj-bat/zkScholar.git
 cd zkScholar
-
-# Install all workspace dependencies
 yarn install
-
-# Start local Midnight proof-server and node
-yarn env:up
-
-# Compile the Compact contract
-yarn compile
-
-# Run the comprehensive test suite locally
-yarn test:local
-
-# Start the frontend server
-cd frontend
-npm run dev
 ```
 
-Remember to gracefully shut down the local network when finished:
+### 3. Smart Contract Compilation
+Compile the Compact zero-knowledge circuits into intermediate representation and generate the strictly-typed TypeScript interfaces:
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+yarn compile
+```
+*Note: This command populates the `contracts/managed/zkscholar/` directory with the necessary prover keys and API definitions.*
+
+### 4. Running the Local Midnight Network and Test Suite
+To run the automated tests, you must initialize the local Midnight Docker network (which spins up a local indexer, proof-server, and blockchain node):
+```bash
+yarn env:up
+yarn test:local
+```
+Once testing is complete, gracefully terminate the Docker instances to free up system resources:
 ```bash
 yarn env:down
 ```
 
+### 5. Running the Frontend Application
+To run the React frontend locally and interact with the smart contract:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Navigate to `http://localhost:5173`. You must have the **1AM wallet** browser extension installed and configured to the appropriate network (Local or Preprod) to interact with the application.
+
+### 6. Application Usage Guide (End-to-End Verification)
+1. **Connect Wallet:** Click **Connect Wallet** in the top navigation bar and select your **1AM Wallet** (connected to the Midnight Preprod network).
+2. **Enter Credentials:** In the **Verify** tab, input your actual GPA and Family Income.
+3. **Client-Side Pre-check:** The built-in pre-checker instantly validates eligibility against on-chain criteria prior to on-chain proof generation.
+4. **Generate Zero-Knowledge Proof:** Click **Verify Eligibility**. The browser WASM circuit executes locally, creating a ZK proof without sending your raw numbers to any server.
+5. **On-Chain Confirmation:** Confirm the transaction in your 1AM wallet. The proof is verified by the Midnight Preprod validators, generating a verifiable on-chain credential.
+6. **Track History:** Review past verified proofs and stats anytime on the **Dashboard** page.
+
 ---
-**Built by Aman Raj for the Midnight Builder Challenge.**
+
+## Author & Acknowledgements
+
+**zkScholar** was developed by **Aman Raj** as part of the Midnight Network hackathon.
+
+- **GitHub:** [@Aman-Raj-bat](https://github.com/Aman-Raj-bat)
+- **X (Twitter):** [@amanraj316](https://x.com/amanraj316)
+
+*Built with privacy and security in mind on the Midnight Network.*
