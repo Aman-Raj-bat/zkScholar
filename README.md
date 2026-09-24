@@ -9,7 +9,7 @@
 [![State](https://img.shields.io/badge/Level-4%20Complete-success?style=for-the-badge)](#)
 [![CI](https://github.com/Aman-Raj-bat/zkScholar/actions/workflows/ci.yaml/badge.svg)](https://github.com/Aman-Raj-bat/zkScholar/actions/workflows/ci.yaml)
 [![Deploy on Netlify](https://img.shields.io/badge/Deploy-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://zk-scholar.netlify.app/)
-[![X (Twitter) Follow](https://img.shields.io/twitter/follow/amanraj316?style=for-the-badge)](https://x.com/amanraj316)
+[![X (Twitter) Follow](https://img.shields.io/twitter/follow/zkscholarvi?style=for-the-badge)](https://x.com/zkscholarvi)
 
 ---
 
@@ -38,7 +38,7 @@ zkScholar is a decentralized application (dApp) engineered on the **Midnight Net
 - **Live Application (Netlify):** [https://zk-scholar.netlify.app/](https://zk-scholar.netlify.app/)
 - **Deployed Contract (Midnight Preprod):** [5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e](https://preprod.midnightexplorer.com/contracts/5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e)
 - **Demo Video Presentation:** [Watch on Google Drive](https://drive.google.com/file/d/1ObGCDBmL-9gjEQNL5sjC4Dhfmi1YMQNl/view?usp=sharing)
-- **Public Brand Presence (X Profile):** [https://x.com/amanraj316/status/2102467601859527155?s=20](https://x.com/amanraj316/status/2102467601859527155?s=20)
+- **Public Brand Presence (X Profile):** [https://x.com/zkscholarvi/status/2103213967716012291?s=20](https://x.com/zkscholarvi/status/2103213967716012291?s=20)
 
 ---
 
@@ -174,7 +174,7 @@ This repository fulfills the strict progression requirements of the "New Moon to
   - **Live Application:** [https://zk-scholar.netlify.app/](https://zk-scholar.netlify.app/)
   - **Deployed Contract (Preprod):** [5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e](https://preprod.midnightexplorer.com/contracts/5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e)
   - **Demo Video Presentation:** [Watch on Google Drive](https://drive.google.com/file/d/1ObGCDBmL-9gjEQNL5sjC4Dhfmi1YMQNl/view?usp=sharing)
-  - **Public Brand Presence (X Profile):** [https://x.com/amanraj316/status/2102467601859527155?s=20](https://x.com/amanraj316/status/2102467601859527155?s=20)
+  - **Public Brand Presence (X Profile):** [https://x.com/zkscholarvi/status/2103213967716012291?s=20](https://x.com/zkscholarvi/status/2103213967716012291?s=20)
 
 ---
 
@@ -253,6 +253,6 @@ Navigate to `http://localhost:5173`. You must have the **1AM wallet** browser ex
 **zkScholar** was developed by **Aman Raj** as part of the Midnight Network hackathon.
 
 - **GitHub:** [@Aman-Raj-bat](https://github.com/Aman-Raj-bat)
-- **X (Twitter):** [@amanraj316](https://x.com/amanraj316)
+- **X (Twitter):** [@zkscholarvi](https://x.com/zkscholarvi)
 
 *Built with privacy and security in mind on the Midnight Network.*

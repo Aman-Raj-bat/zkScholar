@@ -54,7 +54,7 @@ export default function Footer() {
               <Globe size={15} />
             </a>
             <a
-              href="https://x.com/georgian_deep"
+              href="https://x.com/zkscholarvi"
               target="_blank"
               rel="noopener noreferrer"
               className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-slate-400 hover:text-cyan-300 flex items-center justify-center transition-all"
