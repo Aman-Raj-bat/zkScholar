@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { WalletProvider } from './contexts/WalletContext';
 import NavBar from './components/NavBar';
-import WalletBanner from './components/WalletBanner';
 import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
 import VerifyPage from './pages/VerifyPage';
@@ -13,10 +12,10 @@ import DashboardPage from './pages/DashboardPage';
 export default function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen font-sans transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      <div className="flex flex-col min-h-screen font-sans bg-[#050711] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
         <NavBar />
         
-        <main className="flex-1 w-full max-w-6xl mx-auto pt-6 px-4 sm:px-6">
+        <main className="flex-1 w-full max-w-6xl mx-auto pt-4 px-4 sm:px-6 relative z-10">
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/verify" element={<VerifyPage />} />
