@@ -37,7 +37,7 @@ zkScholar is a decentralized application (dApp) engineered on the **Midnight Net
 
 - **Live Application (Netlify):** [https://zk-scholar.netlify.app/](https://zk-scholar.netlify.app/)
 - **Deployed Contract (Midnight Preprod):** [5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e](https://preprod.midnightexplorer.com/contracts/5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e)
-- **Demo Video Presentation:** [Watch on Google Drive](https://drive.google.com/file/d/18nvO0s5JXgGrngQvlMG7VHUd33NUQtqu/view?usp=sharing)
+- **Demo Video Presentation:** [Watch on Google Drive](https://drive.google.com/file/d/1ObGCDBmL-9gjEQNL5sjC4Dhfmi1YMQNl/view?usp=sharing)
 - **Public Brand Presence (X Profile):** [https://x.com/amanraj316/status/2102467601859527155?s=20](https://x.com/amanraj316/status/2102467601859527155?s=20)
 
 ---
@@ -173,7 +173,7 @@ This repository fulfills the strict progression requirements of the "New Moon to
 - **Status:** Complete.
   - **Live Application:** [https://zk-scholar.netlify.app/](https://zk-scholar.netlify.app/)
   - **Deployed Contract (Preprod):** [5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e](https://preprod.midnightexplorer.com/contracts/5a9cd8179b54c81863309dcfacd83f8207f0fc35a1ab79cc4ff524b334c8ae1e)
-  - **Demo Video Presentation:** [Watch on Google Drive](https://drive.google.com/file/d/18nvO0s5JXgGrngQvlMG7VHUd33NUQtqu/view?usp=sharing)
+  - **Demo Video Presentation:** [Watch on Google Drive](https://drive.google.com/file/d/1ObGCDBmL-9gjEQNL5sjC4Dhfmi1YMQNl/view?usp=sharing)
   - **Public Brand Presence (X Profile):** [https://x.com/amanraj316/status/2102467601859527155?s=20](https://x.com/amanraj316/status/2102467601859527155?s=20)
 
 ---
