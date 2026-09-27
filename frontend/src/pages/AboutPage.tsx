@@ -1,122 +1,92 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, BookOpen, Code, Terminal, Sparkles, ExternalLink, Cpu, Lock } from 'lucide-react';
-import TiltCard3D from '../components/ui/TiltCard3D';
-import ZkScholarLogo from '../components/ui/ZkScholarLogo';
-import GlowBadge from '../components/ui/GlowBadge';
+import { ArrowUpRight, BookOpen, Code2, ExternalLink, LockKeyhole, Terminal } from 'lucide-react';
+
+const chapters = [
+  {
+    index: '01 / THE OLD WAY',
+    title: 'A grant should not require your whole life.',
+    icon: BookOpen,
+    tone: 'coral',
+    body: 'Traditional scholarship applications collect transcripts, financial statements, and household tax returns into centralized systems that are difficult to audit and impossible to take back.',
+  },
+  {
+    index: '02 / THE INVERSION',
+    title: 'The circuit asks one small question.',
+    icon: LockKeyhole,
+    tone: 'lime',
+    body: 'zkScholar turns your GPA and income into private witnesses. A local Compact circuit proves whether they satisfy the published criteria without exposing either value to an authority or a server.',
+    points: [
+      'Your GPA and income remain in browser memory.',
+      'WASM computes the constraint satisfaction locally.',
+      'Only the succinct proof travels to Midnight Preprod.',
+    ],
+  },
+  {
+    index: '03 / THE OPEN SOURCE TRAIL',
+    title: 'Readable systems build better trust.',
+    icon: Terminal,
+    tone: 'lavender',
+    body: 'zkScholar is built for the Midnight New Moon to Full Hackathon with Compact, React, Vite, Three.js, and the Midnight.js SDK.',
+    link: true,
+  },
+];
 
 export default function AboutPage() {
   return (
-    <div className="w-full max-w-4xl mx-auto py-8 px-4">
-      <div className="max-w-3xl mx-auto">
-        <motion.div 
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex justify-center mb-4">
-            <ZkScholarLogo size="lg" animated={true} />
-          </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-2 tracking-tight">
-            About zkScholar
-          </h1>
-          <p className="text-slate-400 text-sm sm:text-base">
-            Privacy-preserving eligibility verification built on Midnight Network using Compact Zero-Knowledge circuits.
-          </p>
-        </motion.div>
+    <motion.div
+      className="world-guide"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: 'easeOut' }}
+    >
+      <header className="world-guide-header">
+        <span className="world-index">Field guide / 00</span>
+        <h1>Read the map before you <em>cross it.</em></h1>
+        <p>zkScholar is a privacy-preserving passage through scholarship verification. This is the short version of what happens behind the glow.</p>
+      </header>
 
-        <div className="space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
-            <TiltCard3D className="p-8 bg-slate-900/80 border-slate-800 text-white">
-              <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-3">
-                <div className="p-2.5 bg-rose-950/80 text-rose-400 border border-rose-500/30 rounded-xl">
-                  <BookOpen size={20} /> 
-                </div>
-                <span>The Problem with Traditional Grants</span>
-              </h2>
-              <p className="text-slate-300 leading-relaxed text-sm">
-                Traditional scholarship and tech grant applications require applicants to submit highly sensitive 
-                personal dossiers — academic transcripts, financial statements, and household tax returns. 
-                These files are stored indefinitely on centralized university or corporate databases, creating enormous 
-                privacy risks and targets for data breaches.
-              </p>
-            </TiltCard3D>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <TiltCard3D className="p-8 bg-slate-900/80 border-slate-800 text-white" glowColor="rgba(0, 245, 255, 0.15)">
-              <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-3">
-                <div className="p-2.5 bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 rounded-xl">
-                  <Lock size={20} /> 
-                </div>
-                <span>The Midnight Zero-Knowledge Inversion</span>
-              </h2>
-              <p className="text-slate-300 leading-relaxed text-sm mb-4">
-                zkScholar utilizes Midnight's Zero-Knowledge (ZK) witness capabilities to invert this model. 
-                Instead of sending your data to an authority, the authority's verification circuit compiles to local WASM 
-                and runs directly on your device.
-              </p>
-              
-              <ul className="space-y-3 text-slate-300 bg-slate-950/80 p-5 rounded-xl border border-slate-800 font-mono text-xs">
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0" />
-                  <span>Your GPA and household income act as <strong className="text-cyan-300 font-bold">private witnesses</strong>.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0" />
-                  <span>A local WASM circuit computes constraint satisfaction without revealing values.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0" />
-                  <span>Only a cryptographic proof token is submitted to Midnight Preprod consensus.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0" />
-                  <span>Your private witness never leaves browser memory.</span>
-                </li>
-              </ul>
-            </TiltCard3D>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <TiltCard3D className="p-8 bg-slate-900/80 border-slate-800 text-white">
-              <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-3">
-                <div className="p-2.5 bg-violet-950/80 text-violet-400 border border-violet-500/30 rounded-xl">
-                  <Terminal size={20} /> 
-                </div>
-                <span>Midnight Hackathon & Open Source</span>
-              </h2>
-              <p className="text-slate-300 leading-relaxed text-sm mb-6">
-                This project was created for the <strong className="text-white">Midnight New Moon to Full Hackathon</strong>. 
-                The smart contract is written in Compact, and the frontend is powered by React, Vite, Three.js, and the Midnight.js SDK.
-              </p>
-              <a 
-                href="https://github.com/Aman-Raj-bat/zkScholar" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-950 hover:bg-slate-800 text-white font-mono text-xs font-bold rounded-xl border border-slate-800 transition-colors shadow-sm"
-              >
-                <Code size={16} className="text-cyan-400" />
-                <span>View Source Code on GitHub</span>
-                <ExternalLink size={14} className="text-slate-500" />
-              </a>
-            </TiltCard3D>
-          </motion.div>
-        </div>
+      <div className="world-guide-grid">
+        {chapters.map((chapter, index) => {
+          const Icon = chapter.icon;
+          return (
+            <motion.article
+              key={chapter.index}
+              className={`world-guide-card ${chapter.tone}`}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+            >
+              <div className="world-guide-card-top">
+                <span>{chapter.index}</span>
+                <div className="world-guide-icon"><Icon size={19} aria-hidden="true" /></div>
+              </div>
+              <h2>{chapter.title}</h2>
+              <p>{chapter.body}</p>
+              {chapter.points && (
+                <ul>
+                  {chapter.points.map((point) => <li key={point}>{point}</li>)}
+                </ul>
+              )}
+              {chapter.link && (
+                <a href="https://github.com/Aman-Raj-bat/zkScholar" target="_blank" rel="noreferrer" className="world-guide-link">
+                  View source code <Code2 size={14} aria-hidden="true" /> <ExternalLink size={13} aria-hidden="true" />
+                </a>
+              )}
+            </motion.article>
+          );
+        })}
       </div>
-    </div>
+
+      <section className="world-guide-note">
+        <div>
+          <span className="world-index">The guiding principle</span>
+          <h2>What travels is <em>truth.</em> What stays is you.</h2>
+        </div>
+        <div className="world-guide-note-copy">
+          <p>The ledger can confirm that a claim is valid without learning the private values that made it valid. That is the line zkScholar is built to keep.</p>
+          <a href="https://docs.midnight.network/" target="_blank" rel="noreferrer" className="world-guide-note-link">Midnight developer docs <ArrowUpRight size={15} aria-hidden="true" /></a>
+        </div>
+      </section>
+    </motion.div>
   );
 }
