@@ -10,7 +10,7 @@ export function BackgroundPaths({ className = '' }: BackgroundPathsProps) {
   const paths = Array.from({ length: 20 }, (_, i) => {
     const yStart = 40 + i * 36;
     const yOffset = ((i % 2 === 0 ? 1 : -1) * (i * 14)) + 60;
-    const color = i % 3 === 0 ? '#00f5ff' : i % 3 === 1 ? '#8b5cf6' : '#38bdf8';
+    const color = i % 3 === 0 ? '#d9f27c' : i % 3 === 1 ? '#b8a4ff' : '#f3976a';
     return {
       id: i,
       d: `M -100 ${yStart} C 320 ${yStart + yOffset}, 700 ${yStart - yOffset}, 1400 ${yStart + yOffset / 2}`,
@@ -25,14 +25,14 @@ export function BackgroundPaths({ className = '' }: BackgroundPathsProps) {
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
       {/* Deep Cyber Ambient Radial Glows */}
-      <div className="absolute top-1/5 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-gradient-to-tr from-cyan-500/12 via-violet-600/12 to-fuchsia-600/10 blur-[130px] rounded-full -z-10" />
-      <div className="absolute top-2/3 right-10 w-[500px] h-[350px] bg-gradient-to-bl from-blue-600/10 via-cyan-500/10 to-transparent blur-[120px] rounded-full -z-10" />
+      <div className="absolute top-1/5 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-gradient-to-tr from-lime-300/8 via-violet-400/10 to-orange-300/8 blur-[130px] rounded-full -z-10" />
+      <div className="absolute top-2/3 right-10 w-[500px] h-[350px] bg-gradient-to-bl from-violet-400/8 via-lime-300/6 to-transparent blur-[120px] rounded-full -z-10" />
 
       {/* Subtle Dot Matrix Grid */}
       <div 
         className="absolute inset-0 opacity-[0.18] -z-10"
         style={{
-          backgroundImage: 'radial-gradient(rgba(0, 245, 255, 0.4) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(rgba(217, 242, 124, 0.28) 1px, transparent 1px)',
           backgroundSize: '36px 36px',
         }}
       />
