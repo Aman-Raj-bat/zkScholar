@@ -12,10 +12,11 @@ import DashboardPage from './pages/DashboardPage';
 export default function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen font-sans bg-[#050711] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+      <div className="world-shell selection:bg-[#d9f27c]/30 selection:text-[#f6f0e5]">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <NavBar />
         
-        <main className="flex-1 w-full max-w-6xl mx-auto pt-4 px-4 sm:px-6 relative z-10">
+        <main id="main-content" className="world-main">
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/verify" element={<VerifyPage />} />
