@@ -6,3 +6,6 @@ dist/
 # managed/
 *.log
 .DS_Store
+__agent__/
+.agents/skills/
+skills-lock.json
